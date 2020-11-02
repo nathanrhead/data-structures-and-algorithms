@@ -10,10 +10,12 @@ Then, write a function named speaker that takes in a string and a callback funct
 
 const greeting = (word) => {
   // Solution code here...
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
   // Solution code here...
+  return callback(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,17 +36,21 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 
 CHALLENGE 3
 
-Write a function named createList that takes in an array of the current store intentory.
+Write a function named createList that takes in an array of the current store inventory.
 
 The inventory is formatted like this:
 [
@@ -60,6 +66,13 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let list = [];
+  availableItems.forEach(object => {
+    if (object.available === true) {
+      list.push(object.name);
+      }
+    });
+  return list;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,6 +91,19 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let array = [];
+  arr.forEach(value => {
+    if (value % 3 === 0 && value % 5 === 0 ) {
+      array.push('Fizz Buzz');
+    } else if (value % 3 === 0) {
+      array.push('Fizz');
+    } else if (value % 5 === 0) {
+      array.push('Buzz');
+    } else {
+      array.push(value);
+    }
+  })
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
