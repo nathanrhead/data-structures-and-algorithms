@@ -99,6 +99,10 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  arr.sort( (a,b) => {
+    return a.price - b.price;
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,6 +115,11 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
+  arr.sort ( (a,b) => {
+    console.log(a, b);
+    // return a.localeCompare(b); The error = localeCompare is not a function; but it worked in #6! Ugh!!
+  })
+  return arr;
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -265,7 +274,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       {name: 'Sweatshirt', price: 45},
@@ -281,7 +290,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should sort numbers by their length', () => {
     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
