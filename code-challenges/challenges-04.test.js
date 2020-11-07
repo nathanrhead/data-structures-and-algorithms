@@ -80,8 +80,6 @@ const citiesAtoJ = (arr) => {
         aToJ.push(stringy);
       }
   })
-  console.log(aToJ);
-
   return aToJ;
 };
 
