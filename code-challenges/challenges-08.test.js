@@ -52,8 +52,9 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  let regex = /[aeiou]/g;
+  return arr.filter(n => n.match(regex));
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -65,6 +66,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  return arr.filter(n => !forbiddenValues.includes(n)); 
 };
 
 /* ------------------------------------------------------------------------------------------------
