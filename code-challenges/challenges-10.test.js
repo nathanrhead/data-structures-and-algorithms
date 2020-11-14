@@ -52,18 +52,17 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-  let mergedArray = input.flat();
   let counter = 0;
-  const integerOccurrence = mergedArray.filter(integer => {
-    if (integer === target) {
-      counter++;
-      console.log('Counter', counter);
-      console.log(integerOccurrence);
-      return integerOccurrence;
-
-    };
+  input.filter(number => {
+    number.filter(noArray => {
+    if (target === noArray) {
+    counter++;
+    }
   });
+  });
+  return counter;
 };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -98,16 +97,18 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
-  let numbersOnly = input.map(numbers => {
-    return numbers.filter(numbersOnly => (!(numbersOnly % 5) && typeof numbersOnly === 'number'));
-  })
-  let twoToThePower = [];
-  return numbersOnly.map(twoPower => {
-    Math.pow(2, twoPower);
-  })
-
+  return input.map(numbers => {
+    return numbers.reduce( (runningResult, val) => {
+      if (!(val % 5) && typeof val === 'number') {
+        let twoPower = Math.pow(2, val);
+        runningResult.push(twoPower);
+        return runningResult;
+      } else {
+        return runningResult;
+      }
+  }, []);
+  });
 }
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stetch Goal
