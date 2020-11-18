@@ -45,8 +45,8 @@ const grandTotal = (stores) => {
   return stores.reduce( (acc, b) => {
     return acc.map( (a, idx) => {
       return a + b[idx];
-    })
-  })
+    });
+  });
 
   // let columnValues = new Array(stores.length+7).fill(0);
   // console.log(columnValues);
