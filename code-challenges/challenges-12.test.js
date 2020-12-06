@@ -21,7 +21,7 @@ const maxInArray = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-You friend Pat has a chain of stores around the greater Seattle area. He specializes in selling salmon cookies. Pat has data for the hourly sales of cookies per hour for each store. He wants to create an array of the total number of cookies sold per hour for all of his stores combined.
+You friend Pat has a chain of stores around the greater Seattle area. He specializes in selling salmon cookies. Pat has data for the hourly sales of cookies for each store. He wants to create an array of the total number of cookies sold per hour for all of his stores combined.
 
 Write a function named grandTotal that adds up the cookies sales for each hour of operation for all of the stores combined. For example, the first element in the hourlySales array should be the sum of the cookies sold in the 9:00 a.m. hour at all five stores combined.
 
@@ -59,7 +59,6 @@ const grandTotal = (stores) => {
   // return columnValues;
 };
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -72,6 +71,12 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let objectArray = [];
+  hours.forEach( (hours, idx) => {
+    let object = { sales: `${data[idx]} cookies`, time: hours };
+    objectArray.push(object);
+  });
+  return objectArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,6 +102,16 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  return arr.reduce( (acc, val) => {
+    val.items.map(treats => {
+      if (treats.name === 'Treats') {
+        acc = treats.quantity;
+      } else {
+        return acc;
+      }
+  });
+  return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
