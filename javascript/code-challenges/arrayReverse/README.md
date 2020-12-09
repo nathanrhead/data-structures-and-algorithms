@@ -18,3 +18,4 @@
 ## Solution
 
 ![Whiteboard](../assets/array-reverse.png)
+[Coded Solution](array-reverse.js)
