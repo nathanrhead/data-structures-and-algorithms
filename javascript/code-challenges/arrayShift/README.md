@@ -17,3 +17,5 @@
 ## Solution
 
 ![Whiteboard](../assets/array-shift.png)
+[Coded Solution](array-shift.js)
+
