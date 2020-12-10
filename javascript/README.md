@@ -7,6 +7,7 @@
 - [Class 01: Array Reverse](code-challenges/arrayReverse/README.md)
 - [Class 02: Array Shift](code-challenges/arrayShift/README.md)
 - [CLass 03: Binary Search](code-challenges/arrayBinarySearch/README.md)
+- ![Class 04: Whiteboarding Mock Interview](code-challenges/assets/challenge4-mock-interview.png)
 
 ### Folder and Challenge Setup
 
