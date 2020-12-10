@@ -6,6 +6,7 @@
 
 - [Class 01: Array Reverse](code-challenges/arrayReverse/README.md)
 - [Class 02: Array Shift](code-challenges/arrayShift/README.md)
+- [CLass 03: Binary Search](code-challenges/arrayShift/README.md)
 
 ### Folder and Challenge Setup
 
