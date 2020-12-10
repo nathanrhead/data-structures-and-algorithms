@@ -18,5 +18,6 @@
 ## Solution
 
 ![Whiteboard](../assets/array-binary-search.png)
+
 [Coded Solution](array-binary-search.js)
 
