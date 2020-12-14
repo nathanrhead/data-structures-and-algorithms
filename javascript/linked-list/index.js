@@ -33,6 +33,7 @@ class LinkedList {
   includes(value) {
     let currentNode = this.head;
     while(currentNode.next !== null) {
+      currentNode = currentNode.next;
       return currentNode.value === value ? true : false;
     };
   } 
@@ -41,11 +42,12 @@ class LinkedList {
   toString() {
     let allValues = '';
     let currentNode = this.head;
-    while(currentNode.next !== null) {
+    while(currentNode.next) {
       allValues += `{ ${currentNode.value} } -> `;
       currentNode = currentNode.next;
     }
-    return allValues;
+    allValues += `{ ${currentNode.value} } -> `;
+    return `${allValues}NULL`;
   }
 }
 
