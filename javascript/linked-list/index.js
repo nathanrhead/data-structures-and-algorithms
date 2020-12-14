@@ -31,20 +31,19 @@ class LinkedList {
 
 // Look for the presence of a given value in the list.
   includes(value) {
-    let node;
     let currentNode = this.head;
     while(currentNode.next !== null) {
-      currentNode = currentNode.next;
+      return currentNode.value === value ? true : false;
     };
-    return node === value ? true : false;
   } 
 
 // Create a string of all the linked list's values from a to the nth.
   toString() {
-    let currentNode = this.head;
     let allValues = '';
+    let currentNode = this.head;
     while(currentNode.next !== null) {
-      allValues = '{ currentNode } -> ';
+      allValues += `{ ${currentNode.value} } -> `;
+      currentNode = currentNode.next;
     }
     return allValues;
   }

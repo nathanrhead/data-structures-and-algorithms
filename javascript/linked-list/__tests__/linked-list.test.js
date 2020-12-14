@@ -23,8 +23,21 @@ describe('Linked List', () => {
 
   it('looks for the presence of a given value in the list', () => {
     const list = new LinkedList();
-    list.includes('Norah');
-    expect(list.value).toEqual('Norah');
+    list.insert('Norah');
+    list.insert('Sammy');
+    list.insert('Ben');
+    list.insert('Tim');
+    list.insert('Caleb');
+    // expect(list.includes('Ben')).toBe(true);
+    expect(list.includes('Sasha')).toBe(false);
   })
-
+ it('compiles all values of the list into a string', () => {
+   const list = new LinkedList();
+   list.insert('Norah');
+   list.insert('Sammy');
+   list.insert('Ben');
+   list.insert('Tim');
+   list.insert('Caleb');
+   expect(list.toString()).toBe('{ Caleb } -> { Tim } -> { Ben } -> { Sammy } -> { Norah } -> NULL');
+  });
 })
