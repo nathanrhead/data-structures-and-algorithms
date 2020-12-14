@@ -28,7 +28,7 @@ describe('Linked List', () => {
     list.insert('Ben');
     list.insert('Tim');
     list.insert('Caleb');
-    // expect(list.includes('Ben')).toBe(true);
+    expect(list.includes('Ben')).toBe(true);
     expect(list.includes('Sasha')).toBe(false);
   })
  it('compiles all values of the list into a string', () => {

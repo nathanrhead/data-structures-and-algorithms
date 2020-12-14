@@ -33,9 +33,12 @@ class LinkedList {
   includes(value) {
     let currentNode = this.head;
     while(currentNode.next !== null) {
+      if(currentNode.value === value) {
+        return true;
+      }
       currentNode = currentNode.next;
-      return currentNode.value === value ? true : false;
     };
+    return false;
   } 
 
 // Create a string of all the linked list's values from a to the nth.
