@@ -1,7 +1,7 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../linked-list');
+const LinkedList = require('..');
 
 describe('Linked List', () => {
   it('works', () => {
@@ -21,9 +21,10 @@ describe('Linked List', () => {
     expect(list.head.value).toEqual('Norah');
   })
 
-  // it('looks for the presence of a given value in the list', () => {
-  //   const list = new LinkedList();
-
-  // })
+  it('looks for the presence of a given value in the list', () => {
+    const list = new LinkedList();
+    list.includes('Norah');
+    expect(list.value).toEqual('Norah');
+  })
 
 })

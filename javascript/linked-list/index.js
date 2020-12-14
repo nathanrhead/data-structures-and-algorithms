@@ -31,12 +31,13 @@ class LinkedList {
 
 // Look for the presence of a given value in the list.
   includes(value) {
+    let node;
     let currentNode = this.head;
-    while(currentNode.next !== value || currentNode.next !== null) {
+    while(currentNode.next !== null) {
       currentNode = currentNode.next;
     };
-    return currentNode.value === value ? true : false;
-  }
+    return node === value ? true : false;
+  } 
 
 // Create a string of all the linked list's values from a to the nth.
   toString() {
@@ -47,7 +48,6 @@ class LinkedList {
     }
     return allValues;
   }
-
 }
 
 module.exports = LinkedList;
