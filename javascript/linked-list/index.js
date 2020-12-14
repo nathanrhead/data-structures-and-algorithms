@@ -22,6 +22,10 @@ class LinkedList {
 // Insert a node at the end of a list.
   append(value) {
     const node = new Node(value);
+    if(!this.head) {
+      this.head = node;
+      return;
+    }
     let currentNode = this.head;
     while(currentNode.next !== null) {
       currentNode = currentNode.next;
@@ -32,7 +36,7 @@ class LinkedList {
 // Look for the presence of a given value in the list.
   includes(value) {
     let currentNode = this.head;
-    while(currentNode.next !== null) {
+    while(currentNode) {
       if(currentNode.value === value) {
         return true;
       }
@@ -45,12 +49,16 @@ class LinkedList {
   toString() {
     let allValues = '';
     let currentNode = this.head;
-    while(currentNode.next) {
-      allValues += `{ ${currentNode.value} } -> `;
-      currentNode = currentNode.next;
+    if(!this.head) {
+      return 'NULL';
     }
-    allValues += `{ ${currentNode.value} } -> `;
-    return `${allValues}NULL`;
+    allValues = `{ ${this.head.value} } -> `
+    while(currentNode.next) {
+      currentNode = currentNode.next;
+      allValues += `{ ${currentNode.value} } -> `;
+    }
+    allValues += `NULL`;
+    return `${allValues}`;
   }
 }
 
