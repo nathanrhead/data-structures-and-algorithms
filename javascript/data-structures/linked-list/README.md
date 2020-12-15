@@ -1,14 +1,19 @@
-# Singly Linked List
+# Singly Linked Lists
 
-Code 401, code challenge 05: this is our introduction to singly linked lists. I expect this to get much harder.
-
-## Challenge 05
+## [Challenge 05](index.js)
+### [Whiteboard 05 - None]
 
 Create an empty linked list and then populate it with nodes added to the head; search for the presence of a value in the list; output a string of objects representing the value of each node.
 
-## Challenge 06
+## [Challenge 06](index.js)
+### ![Whiteboard 06](../code-challenges/assets/code-challenge06.png)
 
 Add methods to the linkedList class that (a) append a new node to the end of the list; (b) insert a new node before a node with a given value; (c) insert a new node after a node with a give value. Write tests for each method.
+
+## [Challenge 07](index.js)
+### ![Whiteboard 07](../code-chalenges/assets/code-challenge07.png)
+
+Find the node k places from the tail (with the last node occupying the zero position). 
 
 ## Approach & Efficiency
 
