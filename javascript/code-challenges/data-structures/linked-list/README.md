@@ -18,6 +18,8 @@ Find the node k places from the tail (with the last node occupying the zero posi
 ## [Challenge 08](./llZip/ll_zip.js)
 ### ![Whiteboard 08](../assets/code-challeng08.png)
 
+Zip two linked lists, alternating nodes and maintaining Big O at lowest possible levels.
+
 ## Approach & Efficiency
 
 Big O is either 0(1) or 0(n).
