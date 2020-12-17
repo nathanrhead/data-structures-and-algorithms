@@ -13,7 +13,10 @@ Add methods to the linkedList class that (a) append a new node to the end of the
 ## [Challenge 07](index.js)
 ### ![Whiteboard 07](../code-chalenges/assets/code-challenge07.png)
 
-Find the node k places from the tail (with the last node occupying the zero position). 
+Find the node k places from the tail (with the last node occupying the zero position).
+
+## [Challenge 08](./llZip/ll_zip.js)
+### ![Whiteboard 08](../assets/code-challeng08.png)
 
 ## Approach & Efficiency
 
