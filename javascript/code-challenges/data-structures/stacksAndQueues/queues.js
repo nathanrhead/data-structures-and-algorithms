@@ -24,7 +24,7 @@ class Queues {
 
   dequeue() { // Takes no argument; removes the node from the front of the queue and returns the node’s value, raising an exception when called on an empty queue.
 
-    if(!this.front) { throw new Exception('Queue is empty; cannot dequeue.') };
+    if(!this.front) { throw 'Queue is empty; cannot dequeue.' };
     let temp = this.front;
     this.front = this.front.next;
     this.size--;
@@ -34,7 +34,7 @@ class Queues {
 
   peek() { // Takes no argument; returns the value of the node located in the front of the queue without removing it from the queue, raising an exception when called on an empty queue.
 
-    if(!this.front) { return null; }
+    if(!this.front) { throw 'Cannot peek at an empty queue.'; }
     return this.front.value;
   }
 

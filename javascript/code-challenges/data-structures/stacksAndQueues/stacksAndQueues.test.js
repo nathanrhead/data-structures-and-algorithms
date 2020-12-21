@@ -3,6 +3,8 @@
 const Stack = require('./stacks');
 const Queue = require('./queues');
 
+////////Testing Stacks////////////
+
 describe('stacks', () => {
   it ('creates an empty stack', () => {
     let stack = new Stack();
@@ -53,9 +55,8 @@ describe('stacks', () => {
 
     it('throws an exception when calling pop on an empty stack', () => {
       let stack = new Stack();
-      let popped = stack.pop();
-      expect(popped).toEqual(null);
-    })
+      expect(() => { stack.pop() } ).toThrow('Can\'t pop from an empty stack.');
+    });
 
   });
 
@@ -71,8 +72,7 @@ describe('stacks', () => {
 
     it('throws an exception when calling peek on an empty stack', () => {
       let stack = new Stack();
-      let peeked = stack.peek();
-      expect(peeked).toEqual(null);
+      expect(() => { stack.peek() }).toThrow('Can\'t peek at an empty stack.');
     })
   });
 
@@ -84,6 +84,8 @@ describe('stacks', () => {
     });
   });
 });
+
+////////Testing Queues////////////
 
 describe('queues', () => {
   it ('creates an empty queue', () => {
@@ -132,23 +134,26 @@ describe('queues', () => {
       queue.dequeue('choice');
       expect(queue.size).toEqual(0);
     });
+
+  //   it('throws and exception when calling pop on an empty queue', () => {
+  //     let 
+  //   })
   });
 
   describe('peek()', () => {
     it('returns the value of the top node', () => {
-      let stack = new Stack();
-      stack.push('smile');
-      stack.push('frown');
-      stack.push('choice');
-      let peeked = stack.peek();
+      let queue = new Queue();
+      queue.enqueue('smile');
+      queue.enqueue('frown');
+      queue.enqueue('choice');
+      let peeked = queue.peek();
       expect(peeked).toEqual('choice');
     });
 
     it('throws an exception when calling peek on an empty queue', () => {
       let queue = new Queue();
-      let peeked = queue.peek();
-      expect(peeked).toEqual(null);
-    })
+      expect(() => { queue.peek() }).toThrow('Cannot peek at an empty queue.');
+    });
 
   });
 
@@ -160,3 +165,4 @@ describe('queues', () => {
     });
   });
 })
+
