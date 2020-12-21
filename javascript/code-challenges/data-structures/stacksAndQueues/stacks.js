@@ -24,7 +24,7 @@ class Stack {
 
   pop() { // Takes no argument; removes the node from the top of the stack and returns the node’s value, raising an exception on an empty stack.
 
-    if(!this.top) { return null; };
+    if(!this.top) { throw 'Can\'t pop from an empty stack.'; };
     let temp = this.top;
     if(this.top === this.last) { this.last = null }
     this.top = this.top.next;
@@ -34,7 +34,7 @@ class Stack {
 
   peek() { // Takes no argument; returns the value of the node located on top of the stack without removing it from the stack, raising an exception on an empty stack.
 
-    if(!this.top) { return null; }
+    if(!this.top) { throw 'Can\'t peek at an empty stack.'; }
     return this.top.value;
   }
 
