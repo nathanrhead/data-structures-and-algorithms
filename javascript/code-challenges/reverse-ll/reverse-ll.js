@@ -14,3 +14,5 @@ module.exports = function reverse(list) {
   return true;
 
 }
+
+module.exports = LinkedList;
