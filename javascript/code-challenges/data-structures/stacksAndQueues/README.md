@@ -1,7 +1,7 @@
 # Stacks & Queues
 
 ## [Challenge 10](stacks-and-queues.js)
-### [Whiteboard 05 - None Required]
+### Whiteboard - None Required
 
 - Createa stack class with a "top" property and creates and empty stack when instantiated. Write push, pop, peek, and isEmpty methods to manage the stack's nodes.
 
