@@ -13,7 +13,8 @@
 - ![Class 08: Zip Two Linked Lists](code-challenges/assets/code-challenge08.png)
 - Class 09: Mock Whiteboard Interview #2: the whiteboard was submitted with the Excel grading rubric.
 - Class 10: Stack and Queue Implementation: no whiteboard required.
-- ![Class11: Queue from Two Stacks](code-challenges/assets/code-challenge11.png)
+- ![Class 11: Queue from Two Stacks](code-challenges/assets/code-challenge11.png)
+- ![Class 12: FIFO Animal Shelter](code-challenges/assets/code-challenge12.png)
 
 ### Folder and Challenge Setup
 
