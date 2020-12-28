@@ -15,6 +15,7 @@
 - Class 10: Stack and Queue Implementation: no whiteboard required.
 - ![Class 11: Queue from Two Stacks](code-challenges/assets/code-challenge11.png)
 - ![Class 12: FIFO Animal Shelter](code-challenges/assets/code-challenge12.png)
+- ![Class 13: Multi-bracket Validation](code-challenge13.png)
 
 ### Folder and Challenge Setup
 
