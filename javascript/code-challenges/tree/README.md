@@ -19,16 +19,19 @@
 ## Approach & Efficiency
 
 ### Challenge 15
+
 - Big O for space: not yet known.
 - Big O for time: not yet known.
 
 ### Challenge 16
+
 - Big O for space: O(1): a variable maxTree is created.
 - Big O for time: O(n): the preOrder method has a height of log n, so time is O(h).
 
 ## Solution
 
 ### Challenge 15
+
 - No whiteboard required.
 [Code 15 Solution](./tree.js): no solution yet found.
 
