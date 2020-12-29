@@ -110,8 +110,29 @@ class BinaryTree {
     };
     _walk(this.root);
     return treeMax;
-  }
-  
+  };
+
+  breadthFirst() {
+    let queue = [];
+    let results = [];
+    let index = 0;
+
+    let _traverse = (node) => {
+    if(!node) return;
+    else if(node) {
+        queue[index] = node;
+        results[index] = node.value;
+      }
+    while(queue.length > 0) {
+      // let current = queue[index];
+      if (node.left) { node.left = queue[index++] }; 
+      if (node.right) { node.right = queue[index++] };
+      delete queue[0]; 
+      _traverse(queue[0]);
+
+      };
+    };
+  };
 // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 
 }
