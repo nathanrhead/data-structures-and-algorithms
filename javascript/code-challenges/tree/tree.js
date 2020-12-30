@@ -120,27 +120,22 @@ class BinaryTree {
 
     if(!this.root) return;
     queue[queueIndex] = this.root;
-    // let _traverse = (node) => {
-      let current = this.root;
+    
+    let current = this.root;
     while( queue[resultsIndex] ) {
       current = queue[resultsIndex];
-      console.log('QUEUE-RUN-ONE:', queue);
       results[resultsIndex] = current.value;
 
-    // while(queue.length > 0) {
-      // let current = queue[index];
       if (current.left) { queue[++queueIndex] = current.left }; 
-      console.log('IF-QUEUE-LEFT:', queue);
       if (current.right) { queue[++queueIndex] = current.right };
-      console.log('IF-QUEUE-RIGHT:', queue);
 
       delete queue[resultsIndex];
-      // queue.shift();
       resultsIndex++;
 
       console.log('RESULTS ARRAY:', results);
-      // console.log('QUEUE:', queue);
     };
+    queue = [];
+    console.log('FINAL QUEUE:', queue);
     return results;
   };
 // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
