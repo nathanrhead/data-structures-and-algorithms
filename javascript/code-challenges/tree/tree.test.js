@@ -92,5 +92,22 @@ describe('the BinaryTree class', () => {
     let max = binaryTree.findMax();
     expect(max).toEqual(9);
   });
+
+  it ('returns all nodes in a binary tree ordered from top to bottom and left to right by using a breadth-first traversal sans methods native to JS', () => {
+    let binaryTree = new BT();
+    binaryTree.add(8);
+    binaryTree.add(2);
+    binaryTree.add(7);
+    binaryTree.add(4);
+    binaryTree.add(6);
+    binaryTree.add(5);
+    binaryTree.add(3);
+    binaryTree.add(1);
+    binaryTree.add(9);
+    let results = binaryTree.breadthFirst();
+    expect(results).toEqual([8, 2, 9, 1, 7,
+      4, 3, 6, 5]);
+  });
+  
 });
 

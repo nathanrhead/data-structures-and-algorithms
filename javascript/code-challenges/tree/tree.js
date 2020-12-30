@@ -92,7 +92,6 @@ class BinaryTree {
       if(node.value === value) { boolean = true };
       if(node.left) _walk(node.left);
       if(node.right) _walk(node.right);
-      console.log('Node.Value:', node.value, 'Value:', value);
     }
     _walk(this.root);
     return boolean;
@@ -131,11 +130,8 @@ class BinaryTree {
 
       delete queue[resultsIndex];
       resultsIndex++;
-
-      console.log('RESULTS ARRAY:', results);
     };
     queue = [];
-    console.log('FINAL QUEUE:', queue);
     return results;
   };
 // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
@@ -146,15 +142,15 @@ module.exports = BinaryTree;
 
 // ///////Tests//////////
 
-let binaryTree = new BinaryTree();
-binaryTree.add(8);
-binaryTree.add(2);
-binaryTree.add(7);
-binaryTree.add(4);
-binaryTree.add(6);
-binaryTree.add(5);
-binaryTree.add(3);
-binaryTree.add(1);
-binaryTree.add(9);
-// console.log('Binary Tree:', binaryTree);
-console.log('RESULTS:', binaryTree.breadthFirst());
+// let binaryTree = new BinaryTree();
+// binaryTree.add(8);
+// binaryTree.add(2);
+// binaryTree.add(7);
+// binaryTree.add(4);
+// binaryTree.add(6);
+// binaryTree.add(5);
+// binaryTree.add(3);
+// binaryTree.add(1);
+// binaryTree.add(9);
+// // console.log('Binary Tree:', binaryTree);
+// console.log('RESULTS:', binaryTree.breadthFirst());
