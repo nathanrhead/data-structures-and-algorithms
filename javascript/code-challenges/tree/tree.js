@@ -92,7 +92,6 @@ class BinaryTree {
       if(node.value === value) { boolean = true };
       if(node.left) _walk(node.left);
       if(node.right) _walk(node.right);
-      console.log('Node.Value:', node.value, 'Value:', value);
     }
     _walk(this.root);
     return boolean;
@@ -119,28 +118,24 @@ class BinaryTree {
     let resultsIndex = 0;
 
     if(!this.root) return;
+    // Put the root node at the front of the queue array. This also starts the while loop.
     queue[queueIndex] = this.root;
-    // let _traverse = (node) => {
-      let current = this.root;
+    
+    let current;
+
+    // When the tree runs out, the resultsIndex will iterate one more time and the queue[resultsIndex] will have no value.
     while( queue[resultsIndex] ) {
       current = queue[resultsIndex];
-      console.log('QUEUE-RUN-ONE:', queue);
       results[resultsIndex] = current.value;
 
-    // while(queue.length > 0) {
-      // let current = queue[index];
       if (current.left) { queue[++queueIndex] = current.left }; 
-      console.log('IF-QUEUE-LEFT:', queue);
       if (current.right) { queue[++queueIndex] = current.right };
-      console.log('IF-QUEUE-RIGHT:', queue);
 
       delete queue[resultsIndex];
-      // queue.shift();
       resultsIndex++;
-
-      console.log('RESULTS ARRAY:', results);
-      // console.log('QUEUE:', queue);
     };
+    queue = [];
+    console.log(results);
     return results;
   };
 // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
@@ -151,15 +146,15 @@ module.exports = BinaryTree;
 
 // ///////Tests//////////
 
-let binaryTree = new BinaryTree();
-binaryTree.add(8);
-binaryTree.add(2);
-binaryTree.add(7);
-binaryTree.add(4);
-binaryTree.add(6);
-binaryTree.add(5);
-binaryTree.add(3);
-binaryTree.add(1);
-binaryTree.add(9);
-// console.log('Binary Tree:', binaryTree);
-console.log('RESULTS:', binaryTree.breadthFirst());
+// let binaryTree = new BinaryTree();
+// binaryTree.add(8);
+// binaryTree.add(2);
+// binaryTree.add(7);
+// binaryTree.add(4);
+// binaryTree.add(6);
+// binaryTree.add(5);
+// binaryTree.add(3);
+// binaryTree.add(1);
+// binaryTree.add(9);
+// // console.log('Binary Tree:', binaryTree);
+// console.log('RESULTS:', binaryTree.breadthFirst());
