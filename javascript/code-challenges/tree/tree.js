@@ -118,9 +118,12 @@ class BinaryTree {
     let resultsIndex = 0;
 
     if(!this.root) return;
+    // Put the root node at the front of the queue array. This also starts the while loop.
     queue[queueIndex] = this.root;
     
-    let current = this.root;
+    let current;
+
+    // When the tree runs out, the resultsIndex will iterate one more time and the queue[resultsIndex] will have no value.
     while( queue[resultsIndex] ) {
       current = queue[resultsIndex];
       results[resultsIndex] = current.value;
@@ -132,6 +135,7 @@ class BinaryTree {
       resultsIndex++;
     };
     queue = [];
+    console.log(results);
     return results;
   };
 // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
