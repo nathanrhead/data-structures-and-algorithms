@@ -17,5 +17,5 @@
 
 ## Solution
 
-![Whiteboard](../assets/array-reverse.png)
+![Whiteboard](../../assets/code-challenge01.png)
 [Coded Solution](array-reverse.js)

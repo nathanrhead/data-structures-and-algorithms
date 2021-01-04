@@ -16,5 +16,5 @@
 
 ## Solution
 
-![Whiteboard](../assets/code-challenge13.png)
+![Whiteboard](../../assets/code-challenge13.png)
 [Coded Solution](./multi-bracket-validation.js)
