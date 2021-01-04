@@ -15,10 +15,11 @@
 - Class 10: Stack and Queue Implementation: no whiteboard required.
 - ![Class 11: Queue from Two Stacks](code-challenges/assets/code-challenge11.png)
 - ![Class 12: FIFO Animal Shelter](code-challenges/assets/code-challenge12.png)
-- ![Class 13: Multi-bracket Validation](code-challenge13.png)
-- ![Class 16: Method to Find Max Value](code-challenge16.png)
-- ![Class 17: Breadth-first Traversal](code-challenge17.png)
-
+- ![Class 13: Multi-bracket Validation](code-challenges/assets/code-challenge13.png)
+- ![Class 16: Method to Find Max Value](code-challenges/assets/code-challenge16.png)
+- ![Class 17: Breadth-first Traversal](code-challenges/assets/code-challenge17.png)
+- [Class 18: FizzBuzz on a k-ary tree](code-challenges/assets/code-challenge18.png)
+- [Class 19: Mock Whiteboard Interview](code-challenges/assets/code-challenge19.png)
 
 ### Folder and Challenge Setup
 
