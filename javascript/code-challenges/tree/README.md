@@ -43,9 +43,9 @@ No whiteboard required.
 [Solution](./tree.js)
 
 ### Challenge 16
-![Whiteboard](../assets/code-challenge16.png)
+![Whiteboard](../../assets/code-challenge16.png)
 [Solution](./tree.js)
 
 ### Challenge 17
-![Whiteboard](../assets/code-challenge17.png)
+![Whiteboard](../../assets/code-challenge17.png)
 [Solution](./tree.js)

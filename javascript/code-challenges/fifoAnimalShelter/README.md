@@ -18,5 +18,5 @@
 
 ## Solution
 
-![Whiteboard](../assets/code-challenge12.png)
+![Whiteboard](../../assets/code-challenge12.png)
 [Coded Solution](./fifo-animal-shelter.js)

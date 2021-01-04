@@ -4,21 +4,22 @@
 
 ### Table of Contents (and Links to Whiteboards) for 401 Code Challenges
 
-- [Class 01: Array Reverse](code-challenges/arrayReverse/README.md)
-- [Class 02: Array Shift](code-challenges/arrayShift/README.md)
-- [CLass 03: Binary Search](code-challenges/arrayBinarySearch/README.md)
-- ![Class 04: Whiteboarding Mock Interview](code-challenges/assets/challenge4-mock-interview.png)
-- ![Class 06: Intro to Linked Lists](code-challenges/assets/code-challenge06.png)
-- ![Class 07: The kth Value from the End of a Linked List](code-challenges/assets/code-challenge07.png)
-- ![Class 08: Zip Two Linked Lists](code-challenges/assets/code-challenge08.png)
+- [Class 01: Array Reverse](./assets/code-challenge01.png)
+- [Class 02: Array Shift](./assets/code-challenge02.png)
+- [CLass 03: Binary Search](./assets/code-challenge03.png)
+- ![Class 04: Whiteboarding Mock Interview](./assets/code-challenge0.png)
+- ![Class 06: Intro to Linked Lists](./assets/code-challenge06.png)
+- ![Class 07: The kth Value from the End of a Linked List](./assets/code-challenge07.png)
+- ![Class 08: Zip Two Linked Lists](./assets/code-challenge08.png)
 - Class 09: Mock Whiteboard Interview #2: the whiteboard was submitted with the Excel grading rubric.
 - Class 10: Stack and Queue Implementation: no whiteboard required.
-- ![Class 11: Queue from Two Stacks](code-challenges/assets/code-challenge11.png)
-- ![Class 12: FIFO Animal Shelter](code-challenges/assets/code-challenge12.png)
-- ![Class 13: Multi-bracket Validation](code-challenge13.png)
-- ![Class 16: Method to Find Max Value](code-challenge16.png)
-- ![Class 17: Breadth-first Traversal](code-challenge17.png)
-
+- ![Class 11: Queue from Two Stacks](./assets/code-challenge11.png)
+- ![Class 12: FIFO Animal Shelter](./assets/code-challenge12.png)
+- ![Class 13: Multi-bracket Validation](./assets/code-challenge13.png)
+- ![Class 16: Method to Find Max Value](./assets/code-challenge16.png)
+- ![Class 17: Breadth-first Traversal](./assets/code-challenge17.png)
+- [Class 18: FizzBuzz on a k-ary tree](./assets/code-challenge18.png)
+- [Class 19: Mock Whiteboard Interview](./assets/code-challenge19.png)
 
 ### Folder and Challenge Setup
 

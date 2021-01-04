@@ -16,6 +16,6 @@
 
 ## Solution
 
-![Whiteboard](../assets/array-shift.png)
+![Whiteboard](../../assets/code-challenge02.png)
 [Coded Solution](array-shift.js)
 

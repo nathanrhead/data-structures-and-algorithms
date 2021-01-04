@@ -1,7 +1,7 @@
 # Queue with Stacks
 
 ## [Challenge 11](queue-with-stacks.js)
-### ![Whiteboard 11](../../assets/code-challene11.png)
+### ![Whiteboard 11](../../../assets/code-challenge11.png)
 
 Implement a queue with its methods of enqueue() and dequeue() using only two stacks and the stack methods of push(), pop(), and peek().
 

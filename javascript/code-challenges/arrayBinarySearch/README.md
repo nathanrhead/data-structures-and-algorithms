@@ -17,7 +17,7 @@
 
 ## Solution
 
-![Whiteboard](../assets/array-binary-search.png)
+![Whiteboard](../../assets/code-challenge03.png)
 
 [Coded Solution](array-binary-search.js)
 
