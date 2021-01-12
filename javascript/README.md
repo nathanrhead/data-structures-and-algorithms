@@ -20,6 +20,7 @@
 - ![Class 17: Breadth-first Traversal](./assets/code-challenge17.png)
 - [Class 18: FizzBuzz on a k-ary tree](./assets/code-challenge18.png)
 - [Class 19: Mock Whiteboard Interview](./assets/code-challenge19.png)
+- [Class 26: Insertion Sort](./blogs/insertion-sort/insertion-sort.md)
 
 ### Folder and Challenge Setup
 
