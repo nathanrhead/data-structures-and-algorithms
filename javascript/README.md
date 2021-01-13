@@ -21,6 +21,7 @@
 - [Class 18: FizzBuzz on a k-ary tree](./assets/code-challenge18.png)
 - [Class 19: Mock Whiteboard Interview](./assets/code-challenge19.png)
 - [Class 26: Insertion Sort](./blogs/insertion-sort/insertion-sort.md)
+- [Class 27: Merge Sort](./blogs/mierge-sort/merge-sort.md)
 
 ### Folder and Challenge Setup
 
