@@ -1,0 +1,16 @@
+{
+  "name": "hashtables",
+  "version": "1.0.0",
+  "description": "- This is the code challenge for class 30 of Code Fellows 401. - Implement a Hashtable with the following methods:",
+  "main": "hashtable.js",
+  "scripts": {
+    "test": "jest --coverage --verbose",
+    "watch": "jest --coverage --verbose --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
+}

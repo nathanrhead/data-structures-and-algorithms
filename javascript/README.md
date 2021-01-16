@@ -24,7 +24,7 @@
 - [Class 27: Merge Sort](./blogs/merge-sort/merge-sort.md)
 - [Class 28: Quick Sort](./blogs/quick-sort/quick-sort.md)
 - [Class 29: Mock Interviews]()
-- [Class 30: Hashtables]()
+- [Class 30: Hashtables](./code-challenges/hashtables/hashtable.js)
 
 ### Folder and Challenge Setup
 
