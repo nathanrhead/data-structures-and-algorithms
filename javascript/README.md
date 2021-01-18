@@ -23,7 +23,7 @@
 - [Class 26: Insertion Sort](./blogs/insertion-sort/insertion-sort.md)
 - [Class 27: Merge Sort](./blogs/merge-sort/merge-sort.md)
 - [Class 28: Quick Sort](./blogs/quick-sort/quick-sort.md)
-- [Class 29: Mock Interviews]()
+- [Class 29: Mock Interviews](./assets/code-challenge29.png)
 - [Class 30: Hashtables](./code-challenges/hashtables/hashtable.js)
 
 ### Folder and Challenge Setup

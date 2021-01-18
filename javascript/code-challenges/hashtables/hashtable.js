@@ -73,6 +73,24 @@ class HashMap {
     }
   }
 
+  // Code review's get().
+
+  get(key) {
+  //// 1. Hash the key. 
+  const hash = this.hash(key);
+  //// 2. Error handling: If there isn't a hash, return null
+  if(!this.map[hash]) return null;
+  //// 3. Make the hashed position, which is a linked list, equal to current, in order to be able to traverse the bucket. 
+  let current = this.map[hash].head;
+  //// 4. While current exists, if the keys match, return the value at that key. 
+  while (current) {
+    if(current.value.hasOwnProperty(key)) { return current.value[key] }
+    current = current.next;
+    }
+    // If the key is not found, return null.
+    return null;
+  }
+
   // Takes in the key and returns a boolean, indicating whether the key exists in the table already.
   contains(key) {
     const hash = this.hash(key);
