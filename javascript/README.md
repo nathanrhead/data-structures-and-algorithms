@@ -25,6 +25,7 @@
 - [Class 28: Quick Sort](./blogs/quick-sort/quick-sort.md)
 - [Class 29: Mock Interviews](./assets/code-challenge29.png)
 - [Class 30: Hashtables](./code-challenges/hashtables/hashtable.js)
+- [Class 31: Find the first repeated word in a book](./assets/code-challenge31.png)
 
 ### Folder and Challenge Setup
 
