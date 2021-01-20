@@ -85,7 +85,7 @@ describe('Hashtables', () => {
   });
 
   it ('returns false if the hashtable does not contain the key beyond the head', () => {
-    let hashtable = new HashMap(3);
+    let hashtable = new HashMap(102);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
@@ -94,8 +94,8 @@ describe('Hashtables', () => {
     hashtable.add('blue', 'синий');
     const result = hashtable.contains('foreign');
     const result1 = hashtable.contains('black');
-    expect(result).toEqual(undefined);
-    expect(result1).toBe(undefined);
+    expect(result).toEqual(false);
+    expect(result1).toBe(false);
 
   })
 
