@@ -105,7 +105,7 @@ class HashMap {
         current = current.next;
         console.log('Key:', [key]);
         console.log(Object.keys(current.value));
-        Object.keys(current.value) == [key] ? true : false;
+        return Object.keys(current.value) == [key] ? true : false;
       }
     }
   }
