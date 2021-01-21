@@ -10,6 +10,8 @@
 - The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic.
 - Avoid utilizing any of the library methods available to your language.
 
+## Authors: Ricardo Barcenas, Simon Panek, and Nathan Cox
+
 ## Testing
 
 - Write tests to validate the following functionality:
