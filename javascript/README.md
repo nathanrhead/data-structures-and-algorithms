@@ -18,15 +18,16 @@
 - ![Class 13: Multi-bracket Validation](./assets/code-challenge13.png)
 - ![Class 16: Method to Find Max Value](./assets/code-challenge16.png)
 - ![Class 17: Breadth-first Traversal](./assets/code-challenge17.png)
-- [Class 18: FizzBuzz on a k-ary tree](./assets/code-challenge18.png)
-- [Class 19: Mock Whiteboard Interview](./assets/code-challenge19.png)
+- ![Class 18: FizzBuzz on a k-ary tree](./assets/code-challenge18.png)
+- ![Class 19: Mock Whiteboard Interview](./assets/code-challenge19.png)
 - [Class 26: Insertion Sort](./blogs/insertion-sort/insertion-sort.md)
 - [Class 27: Merge Sort](./blogs/merge-sort/merge-sort.md)
 - [Class 28: Quick Sort](./blogs/quick-sort/quick-sort.md)
-- [Class 29: Mock Interviews](./assets/code-challenge29.png)
+- ![Class 29: Mock Interviews](./assets/code-challenge29.png)
 - [Class 30: Hashtables](./code-challenges/hashtables/hashtable.js)
-- [Class 31: Find the first repeated word in a book](./assets/code-challenge31.png)
-- [CLass 32: Return an array of equal values from each of two binary trees](../assets/code-challenge32.png);
+- ![Class 31: Find the first repeated word in a book](./assets/code-challenge31.png)
+- ![CLass 32: Return an array of equal values from each of two binary trees](../assets/code-challenge32.png)
+- ![Class 33: Implement a simplified LEFT JOIN for 2 Hashmaps](../assets/code-challenge33.png)
 
 ### Folder and Challenge Setup
 
