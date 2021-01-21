@@ -14,15 +14,16 @@
 
 - Write tests to validate the following functionality:
 
-  - [x] 
+  - [x] It returns a joined matrix.
+  - [x] It returns null if either the first or right hashmaps is empty.
+  - [x] It returns an array in which the second index is null in each sub-array when no keys match between the two tables.
 
 ## Approach & Efficiency
 
-- O(1) for time: 
-- O(1) for space:
+- O(1) for time: O(n^2) because of a loop within a loop.
+- O(1) for space: O(n) because the results array can be n items long.
 
 ## Solution
 
 [Coded Solution](./left-join.js)
-![Whiteboard]()
-
+![Whiteboard](../../assets/code-challenge33.png)
