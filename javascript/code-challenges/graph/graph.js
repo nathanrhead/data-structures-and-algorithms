@@ -40,6 +40,8 @@ class Graph {
 
   // Breadth-first search: use a queue to track where you've been.
   bfs(startNode) {
+    if (!startNode) return null;
+
     const queue = [];
 
     // A set is an object that will only store unique keys.
@@ -53,7 +55,7 @@ class Graph {
       const currentNode = queue.shift();
 
       // Get the neighbors of the current node.
-      const neighbors = this.getNeigihbors(currentNode);
+      const neighbors = this.getNeighbors(currentNode);
 
       // Loop over all the neighbors.
       for (let neighbor of neighbors) {
@@ -75,7 +77,7 @@ class Graph {
     return visitedNodes;
   }
 
-  // Depth-first search. Use recursion to travers.
+  // Depth-first search. Use recursion to traverse.
   dfs(startNode) {
     const visitedNodes = new Set();
 

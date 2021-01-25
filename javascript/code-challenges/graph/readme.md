@@ -1,8 +1,6 @@
-# Create a Graph Implementation
+# Create a Graph Implementation: Code Challenges 35 - 38
 
-- This is the code challenge for class 35 of Code Fellows 401.
-
-## Features
+## Code Challenge 35 Features
 
 - Implement your own Graph. The graph should be represented as an adjacency list and should include the following methods:
 
@@ -26,7 +24,7 @@
   
   - [x] size(): Returns the total number of nodes in the graph.
 
-## Testing
+### Code Challenge 35: Testing
 
 - Write tests to validate the following functionality:
 
@@ -39,11 +37,24 @@
   - [x] A graph with only one node and edge can be properly returned.
   - [x] An empty graph properly returns null.
 
+## Code Challenge 36: Features
+
+Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+### Authors: Simon Panek, Ricardo Barcenas, Nathan Cox
+
+### Code Challenge 36: Testing
+
+- [x] It returns a set of values of the nodes in a graph in a breadth-first search.
+- [x] It returns a collection of vertices from a linear graph.
+- [x] It returns null for an empty graph.
+
 ## Approach & Efficiency
 
 - Big O for time: for a breadth-first search, since it's a loop within a loop, time is O(n^2); for the depth-first approach, which is recursive, time is O(n), since it's possible that each node will have to be traversed.
 - Big O for space: since everything depends on the creation of a new Vertex instance, this is at least O(1). However, since the graph is a map of n number of vertices, space for it, as for an array, will be O(n).
 
-## Solution
+## Solutions
 
-[Coded Solution](./graph.js)
+[Code Challenge 35-38](./graph.js)
+![Whiteboard for Code Challenge 36](../../assets/code-challenge35.png)
