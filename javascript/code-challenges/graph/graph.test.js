@@ -63,4 +63,62 @@ describe('Graphs', () => {
     let size = graph.size();
     expect(size).toEqual(4);
   });
+
+  it ('returns a set of values of the nodes in a graph in a breadth-first search', () => {
+    let graph1 = new Graph();
+    graph1.addVertex('Pandora');
+    graph1.addVertex('Arendelle');
+    graph1.addVertex('Metroville');
+    graph1.addVertex('Monstropolis');
+    graph1.addVertex('Narnia');
+    graph1.addVertex('Naboo');
+    graph1.addDirectedEdge('Pandora', 'Arendelle', 1);
+    graph1.addDirectedEdge('Arendelle', 'Metroville', 1);
+    graph1.addDirectedEdge('Arendelle', 'Monstropolis', 1);
+    graph1.addDirectedEdge('Metroville', 'Monstropolis', 1);
+    graph1.addDirectedEdge('Metroville', 'Narnia', 1);
+    graph1.addDirectedEdge('Metroville', 'Naboo', 1);
+    graph1.addDirectedEdge('Monstropolis', 'Naboo', 1);
+    let results = graph1.bfs('Pandora');
+    console.log([...results]);
+    expect([...results]).toEqual([
+      'Pandora',
+      'Arendelle',
+      'Metroville',
+      'Monstropolis',
+      'Narnia',
+      'Naboo'
+    ]);
+  });
+
+  it('returns a collection of vertices from a linear graph.', () => {
+    let graph2 = new Graph();
+    graph2.addVertex('Pandora');
+    graph2.addVertex('Arendelle');
+    graph2.addVertex('Metroville');
+    graph2.addVertex('Monstropolis');
+    graph2.addVertex('Narnia');
+    graph2.addVertex('Naboo');
+    graph2.addDirectedEdge('Naboo', 'Arendelle', 1);
+    graph2.addDirectedEdge('Arendelle', 'Metroville', 1);
+    graph2.addDirectedEdge('Metroville', 'Monstropolis', 1);
+    graph2.addDirectedEdge('Monstropolis', 'Narnia', 1);
+    graph2.addDirectedEdge('Narnia', 'Pandora', 1);
+    let results = graph2.bfs('Naboo');
+    console.log([...results]);
+    expect([...results]).toEqual([
+      'Naboo',
+      'Arendelle',
+      'Metroville',
+      'Monstropolis',
+      'Narnia',
+      'Pandora'
+    ]);
+  });
+
+  it('returns null for an empty graph', () => {
+    let graph = new Graph();
+    expect(graph.bfs()).toEqual(null);
+  });
+
 });
