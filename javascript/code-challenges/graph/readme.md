@@ -57,4 +57,4 @@ Extend your graph object with a breadth-first traversal method that accepts a st
 ## Solutions
 
 [Code Challenge 35-38](./graph.js)
-![Whiteboard for Code Challenge 36](../../assets/code-challenge35.png)
+![Whiteboard for Code Challenge 36](../../assets/code-challenge36.png)
