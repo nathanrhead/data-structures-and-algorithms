@@ -23,7 +23,7 @@ class Graph {
   }
 
   addDirectedEdge(startVertex, endVertex, weight) {
-    if(!this.adjacencyList.has(startVertex) || !this.adjacencyList.has(endVertex)) {
+    if (!this.adjacencyList.has(startVertex) || !this.adjacencyList.has(endVertex)) {
       throw new Error('Error: missing either a starting or an ending vertex, or both.');
     }
 
@@ -32,7 +32,7 @@ class Graph {
   }
 
   getNeighbors(vertex) {
-    if(!this.adjacencyList.has(vertex)) {
+    if (!this.adjacencyList.has(vertex)) {
       throw new Error('Error: invalid vertex', vertex);
     }
     return this.adjacencyList.get(vertex);
@@ -65,7 +65,7 @@ class Graph {
         if (visitedNodes.has(neighborNode)) {
           continue;
         } else {
-        // Otherwise, I haven't been there and I need to add it to the Set.
+          // Otherwise, I haven't been there and I need to add it to the Set.
           visitedNodes.add(neighborNode);
 
           // Put it into the queue
@@ -91,7 +91,7 @@ class Graph {
       // Loop over all the neighbors.
       for (let edge of neighbors) {
         // If the set doesn't have the node:
-        if(!visitedNodes.has(edge.vertex)){
+        if (!visitedNodes.has(edge.vertex)) {
           // then run the following function again, which will add the node to the set and get the neighboring nodes and loop and repeat.
           _traverseNeighbors(edge.vertex);
         }
@@ -110,11 +110,11 @@ class Graph {
     stack.push(startNode);
     visitedNodes.add(startNode);
 
-    while(stack.length) {
+    while (stack.length) {
       const currentNode = stack.pop();
 
       // Ensure that the current node is not the end node.
-      if(currentNode === endNode) {
+      if (currentNode === endNode) {
         return parentPath;
       }
 
@@ -147,8 +147,31 @@ class Graph {
 
   // It returns the total number of nodes in the graph.
   size() {
-    if(!this.adjacencyList.size) return 0;
+    if (!this.adjacencyList.size) return 0;
     return this.adjacencyList.size;
+  }
+
+  getEdge(array) {
+    if (!array[0] || !array[1]) {
+      return false, 0;
+    }
+    let outputBool = false; //fix this
+    let outputWeight = 0;
+    for (let i = 0; i <= array.length - 1; i++) {
+      let neighbor = this.getNeighbors(array[i]);
+      for (let j = 0; j <= neighbor.length - 1; j++) {
+        if (array[i + 1] === neighbor[j].vertex) {
+          outputWeight += neighbor[j].weight;
+          outputBool = true;
+        }
+      }
+      if (outputBool === false) {
+        outputBool = false;
+        outputWeight = 0;
+        return [outputBool, outputWeight];
+      }
+    }
+    return [outputBool, outputWeight];
   }
 }
 
