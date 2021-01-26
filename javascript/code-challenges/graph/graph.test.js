@@ -80,7 +80,6 @@ describe('Graphs', () => {
     graph1.addDirectedEdge('Metroville', 'Naboo', 1);
     graph1.addDirectedEdge('Monstropolis', 'Naboo', 1);
     let results = graph1.bfs('Pandora');
-    console.log([...results]);
     expect([...results]).toEqual([
       'Pandora',
       'Arendelle',
@@ -105,7 +104,6 @@ describe('Graphs', () => {
     graph2.addDirectedEdge('Monstropolis', 'Narnia', 1);
     graph2.addDirectedEdge('Narnia', 'Pandora', 1);
     let results = graph2.bfs('Naboo');
-    console.log([...results]);
     expect([...results]).toEqual([
       'Naboo',
       'Arendelle',
@@ -121,4 +119,129 @@ describe('Graphs', () => {
     expect(graph.bfs()).toEqual(null);
   });
 
+  it('returns true if two vertices are directly connected, as well as the weight of the edge between them', () => {
+    let vertex = new Vertex('Pandora');
+    let vertexTwo = new Vertex('Arendelle');
+    let vertexThree = new Vertex('Metroville');
+    let vertexFour = new Vertex('Monstropolis');
+    let vertexFive = new Vertex('Narnia');
+    let vertexSix = new Vertex('Naboo');
+    let graph = new Graph();
+    graph.addVertex(vertex);
+    graph.addVertex(vertexTwo);
+    graph.addVertex(vertexThree);
+    graph.addVertex(vertexFour);
+    graph.addVertex(vertexFive);
+    graph.addVertex(vertexSix);
+    graph.addDirectedEdge(vertex, vertexTwo, 150);
+    graph.addDirectedEdge(vertex, vertexThree, 82);
+    graph.addDirectedEdge(vertexTwo, vertexThree, 99);
+    graph.addDirectedEdge(vertexTwo, vertexFour, 42);
+    graph.addDirectedEdge(vertexThree, vertexFour, 105);
+    graph.addDirectedEdge(vertexThree, vertexFive, 37);
+    graph.addDirectedEdge(vertexThree, vertexSix, 26);
+    graph.addDirectedEdge(vertexFour, vertexSix, 73);
+    graph.addDirectedEdge(vertexFive, vertexSix, 250);
+    let output = graph.getEdge([vertex, vertexTwo]);
+    expect(output).toEqual([true, 150]);
+  });
+
+  it('returns true if three vertices are directly connected to at least one of the other, as well as the combined weight of the edges between them', () => {
+    let vertex = new Vertex('Pandora');
+    let vertexTwo = new Vertex('Arendelle');
+    let vertexThree = new Vertex('Metroville');
+    let vertexFour = new Vertex('Monstropolis');
+    let vertexFive = new Vertex('Narnia');
+    let vertexSix = new Vertex('Naboo');
+    let graph = new Graph();
+    graph.addVertex(vertex);
+    graph.addVertex(vertexTwo);
+    graph.addVertex(vertexThree);
+    graph.addVertex(vertexFour);
+    graph.addVertex(vertexFive);
+    graph.addVertex(vertexSix);
+    graph.addDirectedEdge(vertex, vertexTwo, 150);
+    graph.addDirectedEdge(vertex, vertexThree, 82);
+    graph.addDirectedEdge(vertexTwo, vertexThree, 99);
+    graph.addDirectedEdge(vertexTwo, vertexFour, 42);
+    graph.addDirectedEdge(vertexThree, vertexFour, 105);
+    graph.addDirectedEdge(vertexThree, vertexFive, 37);
+    graph.addDirectedEdge(vertexThree, vertexSix, 26);
+    graph.addDirectedEdge(vertexFour, vertexSix, 73);
+    graph.addDirectedEdge(vertexFive, vertexSix, 250);
+    let output = graph.getEdge([vertex, vertexTwo, vertexThree]);
+    expect(output).toEqual([true, 249]);
+  });
+
+  it('returns true if two vertices are directly connected, as well as the weight of the edge between them, regardless of what the points of departure and arrival are', () => {
+    let vertex = new Vertex('Pandora');
+    let vertexTwo = new Vertex('Arendelle');
+    let vertexThree = new Vertex('Metroville');
+    let vertexFour = new Vertex('Monstropolis');
+    let vertexFive = new Vertex('Narnia');
+    let vertexSix = new Vertex('Naboo');
+    let graph = new Graph();
+    graph.addVertex(vertex);
+    graph.addVertex(vertexTwo);
+    graph.addVertex(vertexThree);
+    graph.addVertex(vertexFour);
+    graph.addVertex(vertexFive);
+    graph.addVertex(vertexSix);
+    graph.addDirectedEdge(vertex, vertexTwo, 150);
+    graph.addDirectedEdge(vertex, vertexThree, 82);
+    graph.addDirectedEdge(vertexTwo, vertexThree, 99);
+    graph.addDirectedEdge(vertexTwo, vertexFour, 42);
+    graph.addDirectedEdge(vertexThree, vertexFour, 105);
+    graph.addDirectedEdge(vertexThree, vertexFive, 37);
+    graph.addDirectedEdge(vertexThree, vertexSix, 26);
+    graph.addDirectedEdge(vertexFour, vertexSix, 73);
+    graph.addDirectedEdge(vertexFive, vertexSix, 250);
+    graph.addDirectedEdge(vertexTwo, vertex, 150);
+    graph.addDirectedEdge(vertexThree, vertex, 82);
+    graph.addDirectedEdge(vertexThree, vertexTwo, 99);
+    graph.addDirectedEdge(vertexFour, vertexTwo, 42);
+    graph.addDirectedEdge(vertexFour, vertexThree, 105);
+    graph.addDirectedEdge(vertexFive, vertexThree, 37);
+    graph.addDirectedEdge(vertexSix, vertexThree, 26);
+    graph.addDirectedEdge(vertexSix, vertexFour, 73);
+    graph.addDirectedEdge(vertexSix, vertexFive, 250);
+    let output = graph.getEdge([vertexSix, vertexFive]);
+    expect(output).toEqual([true, 250]);
+  });
+
+  it('returns false when the two vertices passed as arguments are not connected by an edge', () => {
+    let vertex = new Vertex('Pandora');
+    let vertexTwo = new Vertex('Arendelle');
+    let vertexThree = new Vertex('Metroville');
+    let vertexFour = new Vertex('Monstropolis');
+    let vertexFive = new Vertex('Narnia');
+    let vertexSix = new Vertex('Naboo');
+    let graph = new Graph();
+    graph.addVertex(vertex);
+    graph.addVertex(vertexTwo);
+    graph.addVertex(vertexThree);
+    graph.addVertex(vertexFour);
+    graph.addVertex(vertexFive);
+    graph.addVertex(vertexSix);
+    graph.addDirectedEdge(vertex, vertexTwo, 150);
+    graph.addDirectedEdge(vertex, vertexThree, 82);
+    graph.addDirectedEdge(vertexTwo, vertexThree, 99);
+    graph.addDirectedEdge(vertexTwo, vertexFour, 42);
+    graph.addDirectedEdge(vertexThree, vertexFour, 105);
+    graph.addDirectedEdge(vertexThree, vertexFive, 37);
+    graph.addDirectedEdge(vertexThree, vertexSix, 26);
+    graph.addDirectedEdge(vertexFour, vertexSix, 73);
+    graph.addDirectedEdge(vertexFive, vertexSix, 250);
+    graph.addDirectedEdge(vertexTwo, vertex, 150);
+    graph.addDirectedEdge(vertexThree, vertex, 82);
+    graph.addDirectedEdge(vertexThree, vertexTwo, 99);
+    graph.addDirectedEdge(vertexFour, vertexTwo, 42);
+    graph.addDirectedEdge(vertexFour, vertexThree, 105);
+    graph.addDirectedEdge(vertexFive, vertexThree, 37);
+    graph.addDirectedEdge(vertexSix, vertexThree, 26);
+    graph.addDirectedEdge(vertexSix, vertexFour, 73);
+    graph.addDirectedEdge(vertexSix, vertexFive, 250);
+    let output = graph.getEdge([vertex, vertexSix]);
+    expect(output).toEqual([false, 0]);
+  });
 });

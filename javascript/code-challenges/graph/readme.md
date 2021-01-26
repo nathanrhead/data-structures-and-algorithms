@@ -49,6 +49,19 @@ Extend your graph object with a breadth-first traversal method that accepts a st
 - [x] It returns a collection of vertices from a linear graph.
 - [x] It returns null for an empty graph.
 
+## Code Challenge 37: Features
+
+Write a function based on the specifications above, which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
+
+### Authors: Simon Panek, Ricardo Barcenas, Nathan Cox
+
+### Code Challenge 37: Testing
+
+- [x] It returns true if two vertices are directly connected, as well as the weight of the edge between them.
+- [x] It returns true if three vertices are directly connected to at least one of the other, as well as the combined weight of the edges between them.
+- [x] It returns true if two vertices are directly connected, as well as the weight of the edge between them, regardless of what the points of departure and arrival are.
+- [x] It returns false when the two vertices passed as arguments are not connected by an edge.
+
 ## Approach & Efficiency
 
 - Big O for time: for a breadth-first search, since it's a loop within a loop, time is O(n^2); for the depth-first approach, which is recursive, time is O(n), since it's possible that each node will have to be traversed.
@@ -57,4 +70,4 @@ Extend your graph object with a breadth-first traversal method that accepts a st
 ## Solutions
 
 [Code Challenge 35-38](./graph.js)
-![Whiteboard for Code Challenge 36](../../assets/code-challenge36.png)
+![Whiteboard for Code Challenge 36](../../assets/code-challenge37.png)

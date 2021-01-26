@@ -29,6 +29,7 @@
 - ![CLass 32: Return an array of equal values from each of two binary trees](../assets/code-challenge32.png)
 - ![Class 33: Implement a simplified LEFT JOIN for 2 Hashmaps](./assets/code-challenge33.png)
 - ![Class 36: Implement a breadth-first search of a graph](./assets/code-challenge36.png)
+- ![Class 37: Get edges and their values](./assets/code-challenge37.png)
 
 ### Folder and Challenge Setup
 
