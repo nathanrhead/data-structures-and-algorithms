@@ -62,6 +62,18 @@ Write a function based on the specifications above, which takes in a graph, and 
 - [x] It returns true if two vertices are directly connected, as well as the weight of the edge between them, regardless of what the points of departure and arrival are.
 - [x] It returns false when the two vertices passed as arguments are not connected by an edge.
 
+## Code Challenge 38: Features
+
+Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal. Without utilizing any of the built-in methods available to your language, return a collection of nodes in their pre-order depth-first traversal order.
+
+### Authors: Simon Panek, Nathan Cox
+
+### Code Challenge 38: Testing
+
+- [x] It returns a pre-ordered set after a depth-first search.
+- [x] It returns a pre-ordered set after a depth-first search, in a different order than the happy path, since dfs will start with the neighbor first added in the root.
+- [x] It returns null if the graph is empty.
+
 ## Approach & Efficiency
 
 - Big O for time: for a breadth-first search, since it's a loop within a loop, time is O(n^2); for the depth-first approach, which is recursive, time is O(n), since it's possible that each node will have to be traversed.
@@ -70,4 +82,7 @@ Write a function based on the specifications above, which takes in a graph, and 
 ## Solutions
 
 [Code Challenge 35-38](./graph.js)
-![Whiteboard for Code Challenge 36](../../assets/code-challenge37.png)
+![Whiteboard for Code Challenge 36](../../assets/code-challenge36.png)
+![Whiteboard for Code Challenge 37](../../assets/code-challenge37.png)
+![Whiteboard for Code Challenge 38](../../assets/code-challenge38.png)
+

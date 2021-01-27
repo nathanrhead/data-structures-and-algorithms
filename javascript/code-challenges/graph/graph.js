@@ -79,6 +79,8 @@ class Graph {
 
   // Depth-first search. Use recursion to traverse.
   dfs(startNode) {
+    if(!startNode) return null;
+
     const visitedNodes = new Set();
 
     const _traverseNeighbors = (node) => {

@@ -244,4 +244,60 @@ describe('Graphs', () => {
     let output = graph.getEdge([vertex, vertexSix]);
     expect(output).toEqual([false, 0]);
   });
+
+  it ('returns a pre-ordered set after a depth-first search', () => {
+    let graph3 = new Graph();
+    graph3.addVertex('A');
+    graph3.addVertex('B');
+    graph3.addVertex('C');
+    graph3.addVertex('D');
+    graph3.addVertex('E');
+    graph3.addVertex('F');
+    graph3.addVertex('G');
+    graph3.addVertex('H');
+
+    graph3.addDirectedEdge('A', 'B');
+    graph3.addDirectedEdge('B', 'C');
+    graph3.addDirectedEdge('C', 'G');
+    graph3.addDirectedEdge('B', 'D');
+    graph3.addDirectedEdge('D', 'E');
+    graph3.addDirectedEdge('D', 'H');
+    graph3.addDirectedEdge('D', 'F');
+    graph3.addDirectedEdge('H', 'F');
+    graph3.addDirectedEdge('A', 'D');
+
+    let visited = graph3.dfs('A');
+    expect([...visited]).toEqual(['A', 'B', 'C', 'G', 'D', 'E', 'H', 'F']);
+  });
+
+  it ('returns a pre-ordered set after a depth-first search, in a different order than the happy path, since dfs will start with the neighbor first added in the root', () => {
+    let graph3 = new Graph();
+    graph3.addVertex('A');
+    graph3.addVertex('B');
+    graph3.addVertex('C');
+    graph3.addVertex('D');
+    graph3.addVertex('E');
+    graph3.addVertex('F');
+    graph3.addVertex('G');
+    graph3.addVertex('H');
+
+    graph3.addDirectedEdge('A', 'D');
+    graph3.addDirectedEdge('A', 'B');
+    graph3.addDirectedEdge('B', 'C');
+    graph3.addDirectedEdge('B', 'D');
+    graph3.addDirectedEdge('C', 'G');
+    graph3.addDirectedEdge('D', 'E');
+    graph3.addDirectedEdge('D', 'H');
+    graph3.addDirectedEdge('H', 'F');
+    graph3.addDirectedEdge('F', 'D');
+
+    let visited = graph3.dfs('A');
+    expect([...visited]).toEqual(['A', 'D', 'E', 'H', 'F', 'B', 'C', 'G']);
+  });
+
+  it ('returns null if the graph is empty', () => {
+    let graph3 = new Graph();
+    let visited = graph3.dfs();
+    expect(visited).toBe(null);
+  });
 });
