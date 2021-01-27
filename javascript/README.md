@@ -30,6 +30,7 @@
 - ![Class 33: Implement a simplified LEFT JOIN for 2 Hashmaps](./assets/code-challenge33.png)
 - ![Class 36: Implement a breadth-first search of a graph](./assets/code-challenge36.png)
 - ![Class 37: Get edges and their values](./assets/code-challenge37.png)
+- ![Class 38: Depth-first search of a graph](./assets/code-challenge38.png)
 
 ### Folder and Challenge Setup
 
