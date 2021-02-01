@@ -31,6 +31,7 @@
 - ![Class 36: Implement a breadth-first search of a graph](./assets/code-challenge36.png)
 - ![Class 37: Get edges and their values](./assets/code-challenge37.png)
 - ![Class 38: Depth-first search of a graph](./assets/code-challenge38.png)
+- ![Class 39: Mock Whiteboarding Interview: Given an adjacency matrix, return an adjacency list](./assets/code-challenge39.png)
 
 ### Folder and Challenge Setup
 

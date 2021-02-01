@@ -153,11 +153,12 @@ class Graph {
     return this.adjacencyList.size;
   }
 
+  // Returns a boolean and the weight of an edge that directly connects to vertices, e.g. [a, b] or [a, b, c]
   getEdge(array) {
     if (!array[0] || !array[1]) {
       return false, 0;
     }
-    let outputBool = false; //fix this
+    let outputBool = false;
     let outputWeight = 0;
     for (let i = 0; i <= array.length - 1; i++) {
       let neighbor = this.getNeighbors(array[i]);
