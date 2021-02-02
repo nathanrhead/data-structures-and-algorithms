@@ -33,6 +33,8 @@
 - ![Class 38: Depth-first search of a graph](./assets/code-challenge38.png)
 - ![Class 39: Mock Whiteboarding Interview: Given an adjacency matrix, return an adjacency list](./assets/code-challenge39.png)
 
+- ![Class 41: Mock Whitebaording Interview: find an anagram](./assets/code-challenge41.png)
+
 ### Folder and Challenge Setup
 
 Each type of code challenge has slightly different instructions. Please refer to the notes and examples below for instructions for each DS&A assignment type.
