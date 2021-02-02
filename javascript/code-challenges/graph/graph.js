@@ -38,7 +38,7 @@ class Graph {
     return this.adjacencyList.get(vertex);
   }
 
-  // Breadth-first search: use a queue to track where you've been.
+  // Breadth-first search: uses a queue to track where you've been.
   bfs(startNode) {
     if (!startNode) return null;
 
@@ -77,7 +77,7 @@ class Graph {
     return visitedNodes;
   }
 
-  // Depth-first search. Use recursion to traverse.
+  // Depth-first search. Uses recursion to traverse.
   dfs(startNode) {
     if(!startNode) return null;
 

@@ -27,7 +27,7 @@ class LinkedList {
         return true;
       }
       currentNode = currentNode.next;
-    };
+    }
     return false;
   }
 
@@ -38,7 +38,7 @@ class LinkedList {
     if (!this.head) {
       return 'NULL';
     }
-    allValues = `{ ${this.head.value} } -> `
+    allValues = `{ ${this.head.value} } -> `;
     while (currentNode.next) {
       currentNode = currentNode.next;
       allValues += `{ ${currentNode.value} } -> `;
@@ -55,11 +55,11 @@ class LinkedList {
       return;
     }
     let currentNode = this.head;
-    while (!currentNode.next) {
+    while (currentNode.next) {
       currentNode = currentNode.next;
-    };
+    }
     currentNode.next = node;
-  };
+  }
 
   insertBefore(value, newValue) {
     let currentNode = this.head;
@@ -75,7 +75,7 @@ class LinkedList {
       previousNode = currentNode;
       currentNode = currentNode.next;
     }
-    throw new Error('Error'); // If there is no match.
+    throw new Error('No match.'); // If there is no match.
   }
 
   insertAfter(value, newValue) {
@@ -89,38 +89,25 @@ class LinkedList {
       }
       currentNode = currentNode.next;
     }
-    throw new Error('Error'); // If there is no match.
+    throw new Error('No match.'); // If there is no match.
   }
 
-  kthFromTheEnd(k) { // Not yet working right.
-    if (k < 0) {
-      return 'exemption';
-    }
-    let counter = -1;
-    let currentNode = this.head;
-    console.log(currentNode.next);
-    while (currentNode !== null) {
-      counter++;
-      currentNode = currentNode.next;
-      console.log('counter in while 1:', counter);
-    }
-    console.log('counter after while 1:', counter);
+  // Find the node k places from the end. This approach uses two pointers.
+  kthFromTheEnd(k) {
+    if (k < 0) { throw 'The linked list is empty.'; }
 
-    if (counter - k < 0 || k > counter) {
-      return 'exemption';
-      // } else if ( (k === 0) && (currentNode.next === null) ) { return currentNode.value }
-    } else {
-      let counterMax = counter;
-      currentNode = this.head;
-      while (currentNode) {
-        console.log('counter inside while 2:', counter, k);
-        counter--;
-        if (counter === counterMax - k + 1) {
-          return currentNode.value;
-        }
-        currentNode = currentNode.next;
-      }
+    let current = this.head;
+    let kthFromCurrent = this.head;
+
+    while (k > 0) {
+      current = current.next;
+      k--;
     }
+    while (current) {
+      current = current.next;
+      kthFromCurrent = kthFromCurrent.next;
+    }
+    return kthFromCurrent.value;
   }
 }
 

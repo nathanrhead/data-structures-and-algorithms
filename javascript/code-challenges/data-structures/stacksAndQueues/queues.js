@@ -8,17 +8,16 @@ class Queues {
     this.end = null;
     this.size = 0;
   }
-  
+
   enqueue(value) { // takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) time performance.
     let node = new Node(value);
     if(!this.front) {
       this.front = node;
       this.end = node;
-    } else { 
-      let temp = this.front;
-      this.front = node; 
-      this.front.next = temp;
-    }  
+    } else {
+      this.end.next = node;
+      this.end = node;
+    }
     this.size++;
   }
 

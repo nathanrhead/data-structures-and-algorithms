@@ -8,25 +8,25 @@ class Stack {
     this.last = null;
     this.size = 0;
   }
-  
+
   push(item) { // Takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) time performance.
     let node = new Node(item);
     if(!this.top) {
       this.top = node;
       this.last = node;
-    } else { 
+    } else {
       let temp = this.top;
-      this.top = node; 
+      this.top = node;
       this.top.next = temp;
-    }  
+    }
     this.size++;
   }
 
   pop() { // Takes no argument; removes the node from the top of the stack and returns the node’s value, raising an exception on an empty stack.
 
-    if(!this.top) { throw 'Can\'t pop from an empty stack.'; };
+    if(!this.top) { throw 'Can\'t pop from an empty stack.'; }
     let temp = this.top;
-    if(this.top === this.last) { this.last = null }
+    if(this.top === this.last) { this.last = null; }
     this.top = this.top.next;
     this.size--;
     return temp.value;
@@ -40,7 +40,7 @@ class Stack {
 
   isEmpty() { // Takes no argument; returns a boolean indicating whether the stack is empty.
 
-    if(!this.top) { return true }
+    if(!this.top) { return true; }
     else if(this.top.value) { return false; }
   }
 }

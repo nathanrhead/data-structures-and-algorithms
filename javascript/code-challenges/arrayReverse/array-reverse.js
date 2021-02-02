@@ -6,12 +6,12 @@ function reverseArray(arr) {
   let reversedArray = [];
   let answerIndex = 0;
 
-  for (let i = arr.length-1; i >= 0; i--) {
-        reversedArray[answerIndex] = arr[i];
-        answerIndex++;
-      }
-      console.log(reversedArray);
-    }
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reversedArray[answerIndex] = arr[i];
+    answerIndex++;
+  }
+  // console.log(reversedArray);
+}
 
 reverseArray(array);
 
@@ -20,7 +20,6 @@ reverseArray(array);
 //   for (let i=arr.length-1; i>=0; i--) {
 //     reversedArray.push(arr[i]);
 //   }
-//   console.log(reversedArray);
 //   return reversedArray;
 // }
 

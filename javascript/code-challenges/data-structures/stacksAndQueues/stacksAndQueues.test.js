@@ -29,7 +29,7 @@ describe('stacks', () => {
       stack.push('frown');
       stack.push('choice');
       expect(stack.size).toEqual(3);
-    })
+    });
   });
 
   describe('pop()', () => {
@@ -55,9 +55,8 @@ describe('stacks', () => {
 
     it('throws an exception when calling pop on an empty stack', () => {
       let stack = new Stack();
-      expect(() => { stack.pop() } ).toThrow('Can\'t pop from an empty stack.');
+      expect(() => { stack.pop(); } ).toThrow('Can\'t pop from an empty stack.');
     });
-
   });
 
   describe('peek()', () => {
@@ -72,8 +71,8 @@ describe('stacks', () => {
 
     it('throws an exception when calling peek on an empty stack', () => {
       let stack = new Stack();
-      expect(() => { stack.peek() }).toThrow('Can\'t peek at an empty stack.');
-    })
+      expect(() => { stack.peek(); }).toThrow('Can\'t peek at an empty stack.');
+    });
   });
 
   describe('isEmpty()', () => {
@@ -102,7 +101,10 @@ describe('queues', () => {
     it('adds a value to the end of the queue', () => {
       let queue = new Queue();
       queue.enqueue('smile');
-      expect(queue.end.value).toEqual('smile');
+      queue.enqueue('frown');
+      queue.enqueue('turned');
+      queue.enqueue('upside-down');
+      expect(queue.end.value).toEqual('upside-down');
     });
 
     it('adds multiple values to the queue', () => {
@@ -111,7 +113,7 @@ describe('queues', () => {
       queue.enqueue('frown');
       queue.enqueue('choice');
       expect(queue.size).toEqual(3);
-    })
+    });
   });
 
   describe('dequeue()', () => {
@@ -121,7 +123,7 @@ describe('queues', () => {
       queue.enqueue('frown');
       queue.enqueue('choice');
       let dequeue = queue.dequeue();
-      expect(dequeue).toEqual('choice');
+      expect(dequeue).toEqual('smile');
     });
 
     it('empties a queue after multiple dequeues', () => {
@@ -129,14 +131,14 @@ describe('queues', () => {
       queue.enqueue('smile');
       queue.enqueue('frown');
       queue.enqueue('choice');
-      queue.dequeue('smile');
-      queue.dequeue('frown');
-      queue.dequeue('choice');
+      queue.dequeue();
+      queue.dequeue();
+      queue.dequeue();
       expect(queue.size).toEqual(0);
     });
 
   //   it('throws and exception when calling pop on an empty queue', () => {
-  //     let 
+  //     let
   //   })
   });
 
@@ -147,12 +149,12 @@ describe('queues', () => {
       queue.enqueue('frown');
       queue.enqueue('choice');
       let peeked = queue.peek();
-      expect(peeked).toEqual('choice');
+      expect(peeked).toEqual('smile');
     });
 
     it('throws an exception when calling peek on an empty queue', () => {
       let queue = new Queue();
-      expect(() => { queue.peek() }).toThrow('Cannot peek at an empty queue.');
+      expect(() => { queue.peek(); }).toThrow('Cannot peek at an empty queue.');
     });
 
   });
@@ -164,5 +166,4 @@ describe('queues', () => {
       expect(emptyQueue).toBe(true);
     });
   });
-})
-
+});
