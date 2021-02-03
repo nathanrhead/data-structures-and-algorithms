@@ -89,7 +89,7 @@ class BinaryTree {
     if (!this.root) return null;
     let boolean = false;
     let _walk = (node) => {
-      if (node.value === value) { boolean = true };
+      if (node.value === value) { boolean = true; }
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
     };
@@ -103,7 +103,7 @@ class BinaryTree {
     if (!this.root) return null;
 
     let _walk = (node) => {
-      if (node.value > treeMax) { treeMax = node.value };
+      if (node.value > treeMax) { treeMax = node.value; }
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
     };
@@ -128,8 +128,8 @@ class BinaryTree {
       current = queue[resultsIndex];
       results[resultsIndex] = current.value;
 
-      if (current.left) { queue[++queueIndex] = current.left };
-      if (current.right) { queue[++queueIndex] = current.right };
+      if (current.left) { queue[++queueIndex] = current.left; }
+      if (current.right) { queue[++queueIndex] = current.right; }
 
       delete queue[resultsIndex];
       resultsIndex++;
@@ -138,6 +138,24 @@ class BinaryTree {
     console.log(results);
     return results;
   }
+
+  'use strict';
+
+
+// NRC's CF 401 final exam question: Given a binary tree and an integer (whether positive, negative, or zero), return true if the sum of a path's values from the tree's root to a leaf equals the integer and false if the sum of any one path's values does not equal the integer.
+
+ pathWeighs(n) {
+  if(!binaryTree.root) return false;
+  let counter = 0;
+  const _dfs = (node, counter) => {
+    counter+= node.value;
+    if(node.left) _dfs(node.left, counter);
+    if(node.right) _dfs(node.right, counter);
+    if(counter === n) return true;
+  };
+  _dfs(binaryTree.root, counter);
+  if (counter !== n) return false;
+}
   // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 
 }

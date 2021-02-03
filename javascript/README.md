@@ -34,6 +34,7 @@
 - ![Class 39: Mock Whiteboarding Interview: Given an adjacency matrix, return an adjacency list](./assets/code-challenge39.png)
 
 - ![Class 41: Mock Whitebaording Interview: find an anagram](./assets/code-challenge41.png)
+- ![Class 42: Mock Whiteboarding Interview: Replace URL Spaces with %20](./assets/code-challenge42.png)
 
 ### Folder and Challenge Setup
 
