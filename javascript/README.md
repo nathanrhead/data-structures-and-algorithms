@@ -36,6 +36,7 @@
 - ![Class 41: Mock Whitebaording Interview: find an anagram](./assets/code-challenge41.png)
 - ![Class 42: Mock Whiteboarding Interview: Replace URL Spaces with %20](./assets/code-challenge42.png)
 - ![Class 43: Mock Whiteboarding Interview: Return the total water usage of a sprinkler system given the usage of each of the heads](./assets/code-challenge42.png)
+- ![Class 44: Mock Whiteboarding Interview: Return the total water usage of a sprinkler system given the usage of each of the heads](./assets/code-challenge42.png)
 
 ### Folder and Challenge Setup
 
