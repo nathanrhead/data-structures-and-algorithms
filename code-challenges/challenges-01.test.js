@@ -70,8 +70,8 @@ const createList = (availableItems) => {
   availableItems.forEach(object => {
     if (object.available === true) {
       list.push(object.name);
-      }
-    });
+    }
+  });
   return list;
 };
 
@@ -93,7 +93,7 @@ const fizzbuzz = (arr) => {
   // Solution code here...
   let array = [];
   arr.forEach(value => {
-    if (value % 3 === 0 && value % 5 === 0 ) {
+    if (value % 3 === 0 && value % 5 === 0) {
       array.push('Fizz Buzz');
     } else if (value % 3 === 0) {
       array.push('Fizz');
@@ -102,7 +102,7 @@ const fizzbuzz = (arr) => {
     } else {
       array.push(value);
     }
-  })
+  });
   return array;
 };
 
