@@ -32,6 +32,6 @@ describe('the function', () => {
     let test5 = '(((}}}';
     let result = multi(test5);
     expect(result).toBe(false);
-  })
+  });
 
 });

@@ -18,7 +18,4 @@ function multiBracketValidation(str) {
   return opening === closing ? true : false;
 }
 
-let test1 = '()[]{}';
-let test2 = '(((]]}'; // This returns true, because 3 opening = 3 closing, but the opening and closing brackets don't match, so ultimately this is a poor solution.
-
 module.exports = multiBracketValidation;
