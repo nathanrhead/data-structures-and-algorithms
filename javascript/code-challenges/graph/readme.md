@@ -85,4 +85,3 @@ Create a function that accepts an adjacency list as a graph, and conducts a dept
 ![Whiteboard for Code Challenge 36](../../assets/code-challenge36.png)
 ![Whiteboard for Code Challenge 37](../../assets/code-challenge37.png)
 ![Whiteboard for Code Challenge 38](../../assets/code-challenge38.png)
-
