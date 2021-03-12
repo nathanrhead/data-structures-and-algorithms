@@ -34,7 +34,7 @@ class HashMap {
 
   //This hashes the key.
   hash(key) {
-    return key.split('').reduce((acc, val, idx) => {
+    return key.split('').reduce((acc, val) => {
       return acc + val.charCodeAt(0);
     }, 0) * 599 % this.size;
   }
