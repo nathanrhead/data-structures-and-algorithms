@@ -1,19 +1,18 @@
 'use strict';
 
 // Require the linked-list implementation
-const LinkedList = require('../data-structures/linked-list/linked-list');
+// const LinkedList = require('../data-structures/linked-list/linked-list');
 
-const list = new LinkedList();
-list.insert(1);
-list.insert(2);
-list.insert(3);
-list.insert(4);
-list.insert(5);
-list.insert(6);
-list.insert(7);
-list.insert(8);
-list.insert(9);
-
+// const list = new LinkedList();
+// list.insert(1);
+// list.insert(2);
+// list.insert(3);
+// list.insert(4);
+// list.insert(5);
+// list.insert(6);
+// list.insert(7);
+// list.insert(8);
+// list.insert(9);
 
 function reverse(list) {
   if (!list.head) throw new Error ('The linked list is empty.');
