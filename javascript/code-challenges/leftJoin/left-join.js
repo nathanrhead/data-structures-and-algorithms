@@ -1,9 +1,11 @@
-// const HashMap = require('../hashMap/hashMap.js');
-
 'Use strict';
+
 function leftJoin(hashmap1, hashmap2) {
+
   if (hashmap1 === null || hashmap2 === null) return null;
+
   let results = [];
+
   for (let i = 0; i <= hashmap1.map.length - 1; i++) {
     if (hashmap1.map[i]) {
       let key = [Object.keys(hashmap1.map[i].head.value)[0]];
@@ -24,4 +26,5 @@ function leftJoin(hashmap1, hashmap2) {
   }
   return results.length === 0 ? null : results;
 }
+
 module.exports = leftJoin;

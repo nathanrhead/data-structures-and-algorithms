@@ -1,10 +1,10 @@
 'use strict';
 
 const HashMap = require('../hashtables/hashtable');
-const leftJoin = require('./leftJoin');
+const leftJoin = require('./left-join');
 
 describe('returns a joined matrix', () => {
-  it ('accepts two hashtables as arguments', () => {
+  it ('accepts two hashmaps as arguments', () => {
     let hashtable1 = new HashMap(16);
     let hashtable2 = new HashMap(16);
     hashtable1.add('fond', 'enamour');
@@ -12,18 +12,22 @@ describe('returns a joined matrix', () => {
     hashtable1.add('diligent', 'employed');
     hashtable1.add('outfit', 'garb');
     hashtable1.add('guide', 'usher');
+
     hashtable2.add('fond', 'averse');
     hashtable2.add('wrath', 'delight');
     hashtable2.add('diligent', 'idle');
     hashtable2.add('guide', 'follow');
     hashtable2.add('flow', 'jam');
+
     let results = leftJoin(hashtable1, hashtable2);
+
     expect(results).toEqual([['diligent', 'employed', 'idle'],['fond', 'enamour', 'averse'], ['guide', 'usher', 'follow'], ['wrath', 'anger', 'delight'], ['outfit', 'garb', null] ]);
   });
 
-  it ('returns null if either the first or right hashtable is empty', () => {
+  it ('returns null if either the first or right hashmaps is empty', () => {
     let hashtable1 = new HashMap(16);
     let hashtable2 = new HashMap(16);
+
     let result = leftJoin(hashtable1, hashtable2);
     console.log('Result:', result);
     expect(result).toBe(null);
@@ -37,12 +41,15 @@ describe('returns a joined matrix', () => {
     hashtable1.add('diligent', 'employed');
     hashtable1.add('outfit', 'garb');
     hashtable1.add('guide', 'usher');
+
     hashtable2.add('sugar', 'averse');
     hashtable2.add('salt', 'delight');
     hashtable2.add('pepper', 'idle');
     hashtable2.add('florence', 'follow');
     hashtable2.add('waterfall', 'jam');
+
     let results = leftJoin(hashtable1, hashtable2);
+
     expect(results).toEqual([
       [ 'diligent', 'employed', null ],
       [ 'fond', 'spice', null ],
