@@ -10,25 +10,25 @@ Write a function named templateWithJQuery that uses jQuery to get the html templ
 ------------------------------------------------------------------------------------------------ */
 let starWarsPeople = [
   {
-    "name": "Luke Skywalker",
-    "height": "172",
-    "eye_color": "blue"
+    'name': 'Luke Skywalker',
+    'height': '172',
+    'eye_color': 'blue'
   },
   {
-    "name": "C-3PO",
-    "height": "167",
-    "eye_color": "yellow"
+    'name': 'C-3PO',
+    'height': '167',
+    'eye_color': 'yellow'
   },
   {
-    "name": "R2-D2",
-    "height": "96",
-    "eye_color": "red"
+    'name': 'R2-D2',
+    'height': '96',
+    'eye_color': 'red'
   }
 ];
 
 let $ = createSnippetWithJQuery(`
 <main>
-  <section id="template">
+  <section id='template'>
     <h2></h2>
     <h3></h3>
     <p></p>
@@ -39,7 +39,7 @@ let $ = createSnippetWithJQuery(`
 const templateWithJQuery = () => {
   // Solution code here...
   let $htmlTemplate = $('#template').clone();
-  
+
 
   starWarsPeople.forEach(starWarsChar => {
     let addPeople = $('<section></section>');
@@ -48,8 +48,8 @@ const templateWithJQuery = () => {
     addPeople.find('h3').text(starWarsChar.height);
     addPeople.find('p').text(starWarsChar.eye_color);
     $('main').append(addPeople);
-    })
-}
+  });
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -67,10 +67,10 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
-    
-    for (let i = 0; i <= str.length; i++) {
-      result.push(str.slice(i));
-    }
+
+  for (let i = 0; i <= str.length; i++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
@@ -135,7 +135,7 @@ const listFoods = (recipe) => {
   let shoppingList = recipe.ingredients;
   for (let i = 0; i < shoppingList.length; i++) {
     let sliceIndex = shoppingList[i].indexOf(' ', 3);
-    let ingredients = shoppingList[i].slice(sliceIndex+1);
+    let ingredients = shoppingList[i].slice(sliceIndex + 1);
     result.push(ingredients);
   }
   return result;
@@ -144,7 +144,7 @@ const listFoods = (recipe) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
-Write a function named splitFoods that uses split to produce the same output as Challenge 3.
+Write a function named splitFoods that uses split to produce the same output as Challenge 4.
 
 You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
@@ -152,6 +152,11 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  let shoppingList = recipe.ingredients;
+  shoppingList.forEach(item => {
+    let list = item.split(' ').slice(2).join(' ');
+    result.push(list);
+  });
   return result;
 };
 
@@ -211,7 +216,7 @@ const removeLastCharacters = (str, numberOfCharacters) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
-Write a function named totalSumCSV that, given a string of comma-separated values (CSV) as input. (e.g. "1,2,3"), returns the total sum of the numeric values (e.g. 6).
+Write a function named totalSumCSV that, given a string of comma-separated values (CSV) as input. (e.g. '1,2,3'), returns the total sum of the numeric values (e.g. 6).
 ------------------------------------------------------------------------------------------------ */
 
 const totalSumCSV = (str) => {
@@ -292,7 +297,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
@@ -360,6 +365,6 @@ xdescribe('Testing challenge 11', () => {
 });
 
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
 };
