@@ -225,8 +225,12 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  if (str.length <= numberOfCharacters) return '';
+  if (numberOfCharacters < 0) return str;
+  const array = str.split('');
+  array.splice(str.length - (numberOfCharacters), numberOfCharacters);
+  return array.join('');
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -237,6 +241,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
+  const stringArray = str.split(',');
+  for (let i = 0; i < stringArray.length; i++) {
+    total+= parseInt(stringArray[i]);
+  }
   return total;
 };
 
@@ -251,6 +259,12 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  if (!str) return;
+  let array = str.split('');
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 'a' || array[i] === 'e' || array[i] === 'i' || array[i] === 'o' || array[i] === 'u') array.splice(i, 1);
+  }
+  return array.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -338,7 +352,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
@@ -354,14 +368,14 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should add up the numbers contained within the string', () => {
     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
     expect(totalSumCSV('147')).toStrictEqual(147);
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
@@ -382,4 +396,4 @@ xdescribe('Testing challenge 11', () => {
 
 function createSnippetWithJQuery(html) {
   return cheerio.load(html);
-};
+}
