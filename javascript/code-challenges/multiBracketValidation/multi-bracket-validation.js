@@ -4,7 +4,6 @@
 //Problem domain: Your function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets: '()', '{}', '[]';
 
 function multiBracketValidation(str) {
-  // console.log(typeof str);
   if (!str) return true;
 
   let parentheses = [];
@@ -18,12 +17,7 @@ function multiBracketValidation(str) {
     if (inputArray[i] === '{' || inputArray[i] === '}') curlyBraces.push(inputArray[i]);
     if (inputArray[i] === '[' || inputArray[i] === ']') brackets.push(inputArray[i]);
   }
-  console.log('Parentheses:', parentheses);
-  console.log('curlyBraces:', curlyBraces);
-  console.log('brackets:', brackets);
-
   return ( (parentheses.length % 2 === 0) && (curlyBraces.length % 2 === 0) && (brackets.length % 2 === 0) ) ? true : false;
-
 }
 
 module.exports = multiBracketValidation;

@@ -279,6 +279,11 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  const regex = /[aeiou]/gmi; // Targets vowels, whether upper or lower case.
+  const vowels = str.match(regex);
+  const consonants = str.replace(regex, '');
+  const vowelsAlphabetized = vowels.sort().join('');
+  return [consonants, vowelsAlphabetized];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -384,7 +389,7 @@ describe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
