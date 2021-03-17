@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 
 const BT = require('./tree');
 
@@ -108,6 +108,23 @@ describe('the BinaryTree class', () => {
     expect(results).toEqual([8, 2, 9, 1, 7,
       4, 3, 6, 5]);
   });
-  
+
+  it ('returns true if a single path\'s acculative value from root to leaf equals a given integer, n, and false if no path does', () => {
+    let binaryTree = new BT();
+    binaryTree.add(15);
+    binaryTree.add(9);
+    binaryTree.add(17);
+    binaryTree.add(6);
+    binaryTree.add(14);
+    binaryTree.add(16);
+    binaryTree.add(24);
+    binaryTree.add(2);
+    binaryTree.add(7);
+    binaryTree.add(13);
+    binaryTree.add(19);
+    expect(() => binaryTree.pathWeighs(32).toBe(true));
+    expect(() => binaryTree.pathWeighs(56).toBe(false));
+    expect(() => binaryTree.pathWeighs(48).toBe(true));
+  });
 });
 

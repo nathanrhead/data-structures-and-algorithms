@@ -15,7 +15,7 @@ class BinaryTree {
     this.root = null;
   }
 
-  // Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree: this one will make a BST and may only accept integers.
+  // Define a method named add that accepts a value and adds a new node with that value in the correct location in the binary search tree: this one will make a BST and may only accept integers.
   add(value) {
     if (typeof value !== 'number') {
       return null;
@@ -26,13 +26,13 @@ class BinaryTree {
       return;
     }
 
-    let _insert = (node) => {
+    const _insert = (node) => {
       if (value < node.value) {
         if (node.left === null) {
           node.left = new Node(value);
           return;
         } else if (node.left !== null) {
-          return +_insert(node.left);
+          return _insert(node.left);
         }
       } else if (value >= node.value) {
         if (node.right === null) {
@@ -82,7 +82,6 @@ class BinaryTree {
     _walk(this.root);
     return results;
   }
-
 
   // Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
   contains(value) {
@@ -135,27 +134,28 @@ class BinaryTree {
       resultsIndex++;
     }
     queue = [];
-    console.log(results);
     return results;
   }
 
-  'use strict';
+  // NRC's CF 401 final exam question: Given a binary tree and an integer (whether positive, negative, or zero), return true if the sum of a path's values from the tree's root to a leaf equals the integer and false if the sum of any one path's values does not equal the integer.
 
+  pathWeighs(n) {
+    if (!this.root) return false;
+    let counter = 0;
+    let boolean = false;
+    const _dfs = (node, counter) => {
+      if (!node.left && !node.right && counter === n) {
+        boolean = true;
+      } else {
+        counter += node.value;
+        if (node.left) _dfs(node.left, counter);
+        if (node.right) _dfs(node.right, counter);
+      }
+    };
+    _dfs(this.root, counter);
+    return boolean;
+  }
 
-// NRC's CF 401 final exam question: Given a binary tree and an integer (whether positive, negative, or zero), return true if the sum of a path's values from the tree's root to a leaf equals the integer and false if the sum of any one path's values does not equal the integer.
-
- pathWeighs(n) {
-  if(!binaryTree.root) return false;
-  let counter = 0;
-  const _dfs = (node, counter) => {
-    counter+= node.value;
-    if(node.left) _dfs(node.left, counter);
-    if(node.right) _dfs(node.right, counter);
-    if(counter === n) return true;
-  };
-  _dfs(binaryTree.root, counter);
-  if (counter !== n) return false;
-}
   // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 
 }
