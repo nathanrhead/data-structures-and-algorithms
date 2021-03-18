@@ -20,12 +20,10 @@ class BinaryTree {
     if (typeof value !== 'number') {
       return null;
     }
-
     if (!this.root) {
       this.root = new Node(value);
       return;
     }
-
     const _insert = (node) => {
       if (value < node.value) {
         if (node.left === null) {
@@ -46,7 +44,36 @@ class BinaryTree {
     _insert(this.root);
   }
 
-  // Define a method for each of the depth-first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+  // This creates a Binary Tree, adding nodes from top to bottom and left to right.
+  addNode(value) {
+    if (!this.root) {
+      this.root = new Node(value);
+      return;
+    }
+
+    let current;
+    let queue = [];
+    queue[0] = this.root;
+
+    while (queue) {
+      current = queue.shift();
+      if (!current.left) {
+        current.left = new Node(value);
+        return;
+      } else {
+        queue.push(current.left);
+      }
+
+      if (!current.right) {
+        current.right = new Node(value);
+        return;
+      } else {
+        queue.push(current.right);
+      }
+    }
+  }
+
+  // Define methods for each of the depth-first traversals, called (1) preOrder, (2) inOrder, and (3) postOrder, which return an array of the values, ordered appropriately.
 
   preOrder() { // depth-first search; works with BT and BST
     // Create an array that will hold the values
@@ -83,33 +110,7 @@ class BinaryTree {
     return results;
   }
 
-  // Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
-  contains(value) {
-    if (!this.root) return null;
-    let boolean = false;
-    let _walk = (node) => {
-      if (node.value === value) { boolean = true; }
-      if (node.left) _walk(node.left);
-      if (node.right) _walk(node.right);
-    };
-    _walk(this.root);
-    return boolean;
-  }
-
-  // Find the Maximum Value in a Binary Tree (code challenge 16 of CF 401).
-  findMax() {
-    let treeMax = 0;
-    if (!this.root) return null;
-
-    let _walk = (node) => {
-      if (node.value > treeMax) { treeMax = node.value; }
-      if (node.left) _walk(node.left);
-      if (node.right) _walk(node.right);
-    };
-    _walk(this.root);
-    return treeMax;
-  }
-
+  // This search method will return the nodes' values from top to bottom and left to right, one level at a time.
   breadthFirst() {
     let queue = [];
     let results = [];
@@ -135,6 +136,33 @@ class BinaryTree {
     }
     queue = [];
     return results;
+  }
+
+  // Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+  contains(value) {
+    if (!this.root) return null;
+    let boolean = false;
+    let _walk = (node) => {
+      if (node.value === value) { boolean = true; }
+      if (node.left) _walk(node.left);
+      if (node.right) _walk(node.right);
+    };
+    _walk(this.root);
+    return boolean;
+  }
+
+  // Find the Maximum Value in a Binary Tree (code challenge 16 of CF 401).
+  findMax() {
+    let treeMax = 0;
+    if (!this.root) return null;
+
+    let _walk = (node) => {
+      if (node.value > treeMax) { treeMax = node.value; }
+      if (node.left) _walk(node.left);
+      if (node.right) _walk(node.right);
+    };
+    _walk(this.root);
+    return treeMax;
   }
 
   // NRC's CF 401 final exam question: Given a binary tree and an integer (whether positive, negative, or zero), return true if the sum of a path's values from the tree's root to a leaf equals the integer and false if the sum of any one path's values does not equal the integer.

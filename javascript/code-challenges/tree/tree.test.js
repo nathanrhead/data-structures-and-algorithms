@@ -34,6 +34,22 @@ describe('the BinaryTree class', () => {
     expect(results).toEqual([8, 2, 1, 7, 4, 3, 6, 5, 9]);
   });
 
+  it ('adds values to the tree in a BT pattern, from top to bottom and left to right, regardless of the value or type of the input.', () => {
+    let binaryTree = new BT();
+    binaryTree.addNode('A');
+    binaryTree.addNode('B');
+    binaryTree.addNode('C');
+    binaryTree.addNode('D');
+    binaryTree.addNode('E');
+    binaryTree.addNode('F');
+    binaryTree.addNode('G');
+    binaryTree.addNode('H');
+    binaryTree.addNode('I');
+    let results = binaryTree.breadthFirst();
+    expect(results).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']);
+  });
+
+
   it ('traveres the tree inOrder', () => {
     let binaryTree = new BT();
     binaryTree.add(8);
@@ -93,7 +109,7 @@ describe('the BinaryTree class', () => {
     expect(max).toEqual(9);
   });
 
-  it ('returns all nodes in a binary tree ordered from top to bottom and left to right by using a breadth-first traversal sans methods native to JS', () => {
+  it ('returns all nodes in a binary tree ordered from top to bottom and left to right by using a breadth-first traversal, sans methods native to JS', () => {
     let binaryTree = new BT();
     binaryTree.add(8);
     binaryTree.add(2);
@@ -111,20 +127,21 @@ describe('the BinaryTree class', () => {
 
   it ('returns true if a single path\'s acculative value from root to leaf equals a given integer, n, and false if no path does', () => {
     let binaryTree = new BT();
-    binaryTree.add(15);
-    binaryTree.add(9);
-    binaryTree.add(17);
-    binaryTree.add(6);
-    binaryTree.add(14);
-    binaryTree.add(16);
-    binaryTree.add(24);
-    binaryTree.add(2);
-    binaryTree.add(7);
-    binaryTree.add(13);
-    binaryTree.add(19);
-    expect(() => binaryTree.pathWeighs(32).toBe(true));
-    expect(() => binaryTree.pathWeighs(56).toBe(false));
-    expect(() => binaryTree.pathWeighs(48).toBe(true));
+    binaryTree.addNode(1);
+    binaryTree.addNode(2);
+    binaryTree.addNode(3);
+    binaryTree.addNode(4);
+    binaryTree.addNode(5);
+    binaryTree.addNode(6);
+    binaryTree.addNode(7);
+    binaryTree.addNode(8);
+    binaryTree.addNode(9);
+    binaryTree.addNode(10);
+    binaryTree.addNode(11);
+
+    expect(() => binaryTree.pathWeighs(18).toBe(true));
+    expect(() => binaryTree.pathWeighs(10).toBe(false));
+    expect(() => binaryTree.pathWeighs(11).toBe(true));
   });
 });
 
