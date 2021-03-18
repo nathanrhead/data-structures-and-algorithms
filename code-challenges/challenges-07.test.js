@@ -21,8 +21,8 @@ let $ = createSnippetWithJQuery(`
 
 const addTea = () => {
   // Solution code here...
- $('ul').append('<li>tea</li>');  
-}
+  $('ul').append('<li>tea</li>');
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -37,8 +37,8 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 const forLoopTwoToThe = (arr) => {
   // Solution code here...
   let newArray = [];
-  for (let i = 0; i < arr.length; i++) {
-    let twoPower = Math.pow(2, arr[i]);
+  for (const num of arr) {
+    const twoPower = Math.pow(2, num);
     newArray.push(twoPower);
   }
   return newArray;
@@ -55,8 +55,8 @@ const forEachTwoToThe = (arr) => {
   let newArray = [];
   arr.forEach(twoPower => {
     newArray.push(Math.pow(2, twoPower));
-  })
- return newArray;
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,9 +67,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 
 const mapTwoToThe = (arr) => {
   // Solution code here...
-  let newArray = arr.map(twoPower => Math.pow(2, twoPower));
-  console.log(newArray);
-  return newArray;
+  return arr.map(twoPower => Math.pow(2, twoPower));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,6 +82,7 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
   // Solution code here...
+  return arr.map((val => val.charCodeAt()));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,6 +97,11 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = (arr) => {
   // Solution code here...
+  return arr.map(val => {
+    if(typeof val !== 'number') return val = 'N/A';
+    else if (val % 2) return val = 'odd';
+    else return val = 'even';
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -107,7 +111,7 @@ Use the snorlaxAbilities data, below, for this challenge.
 
 Write a function named extractAbilities that, given the array of abilities, uses map to create an array containing only the ability name.
 
-Note: Because this function is expecting the array of abilities, it will be invoked as:
+Note: Because this function is expecting an array of abilities, it will be invoked as:
 extractAbilities(snorlaxAbilities.abilities)
 ------------------------------------------------------------------------------------------------ */
 
@@ -144,6 +148,9 @@ const snorlaxAbilities = {
 
 const extractAbilities = (arr) => {
   // Solution code here...
+  return arr.map(val => {
+    return val.ability.name;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,6 +198,9 @@ const snorlaxStats = {
 
 const extractStats = (arr) => {
   // Solution code here...
+  return arr.map(val => {
+    return {'name': val.stat.name, 'total': (val.effort + val.baseStat)};
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -208,7 +218,7 @@ describe('Testing challenge 1', () => {
   test('It should add tea to the list', () => {
     addTea();
     expect($('li:nth-child(6)').text()).toStrictEqual('tea');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
@@ -244,43 +254,43 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the character code for each letter', () => {
-    expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([ 67, 111, 100, 101, 51, 48, 49 ]);
+    expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([67, 111, 100, 101, 51, 48, 49]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return an array containing the keys from an object', () => {
-    expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]);
+    expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual(['odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd']);
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541]).length).toStrictEqual(8);
   });
 
   test('It should work with all odd numbers', () => {
-    expect(evenOdd([1, 3, 5, 7, 9])).toStrictEqual([ 'odd', 'odd', 'odd', 'odd', 'odd' ]);
+    expect(evenOdd([1, 3, 5, 7, 9])).toStrictEqual(['odd', 'odd', 'odd', 'odd', 'odd']);
     expect(evenOdd([1, 3, 5, 7, 9]).length).toStrictEqual(5);
   });
 
   test('It should work with all even numbers', () => {
-    expect(evenOdd([2, 4, 6, 8, 10])).toStrictEqual([ 'even', 'even', 'even', 'even', 'even' ]);
+    expect(evenOdd([2, 4, 6, 8, 10])).toStrictEqual(['even', 'even', 'even', 'even', 'even']);
     expect(evenOdd([2, 4, 6, 8, 10]).length).toStrictEqual(5);
   });
 
   test('It should return the string "N/A" if a non-number is included in the array', () => {
-    expect(evenOdd([5, 8, 2, 'hi'])).toStrictEqual([ 'odd', 'even', 'even', 'N/A' ]);
+    expect(evenOdd([5, 8, 2, 'hi'])).toStrictEqual(['odd', 'even', 'even', 'N/A']);
     expect(evenOdd([5, 8, 2, 'hi']).length).toStrictEqual(4);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing only the ability names', () => {
     expect(extractAbilities(snorlaxAbilities.abilities)).toStrictEqual(['gluttony', 'cute charm', 'immunity']);
     expect(extractAbilities(snorlaxAbilities.abilities).length).toStrictEqual(3);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array containing objects with name and total values', () => {
     expect(extractStats(snorlaxStats.stats)).toStrictEqual([
       { name: 'speed', total: 35, },
@@ -291,6 +301,6 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
-};
+}
