@@ -128,7 +128,7 @@ const getStatName = (arr, minBaseStat) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named getCharactersWithoutChildren that, given the array of characters, below, uses filter to return an array of all characters without children.
+Write a function named getCharactersWithoutChildren that, given the array of characters below, uses filter to return an array of all characters without children.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -176,6 +176,7 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  return arr.filter(sansKids => !sansKids.children);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -188,6 +189,13 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+
+  let numeric = arr.filter(numeric => (typeof numeric === 'number'));
+  let answer = numeric.map(num => {
+    if (num % 2) return num = 'odd';
+    else return num = 'even';
+  });
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -305,14 +313,14 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing characters who do not have children', () => {
     expect(getCharactersWithoutChildren(characters)).toStrictEqual([ { name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' } ]);
     expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should remove non-integers and return "even" or "odd', () => {
     expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
     expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);

@@ -49,7 +49,6 @@ describe('the BinaryTree class', () => {
     expect(results).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']);
   });
 
-
   it ('traveres the tree inOrder', () => {
     let binaryTree = new BT();
     binaryTree.add(8);
@@ -125,7 +124,7 @@ describe('the BinaryTree class', () => {
       4, 3, 6, 5]);
   });
 
-  it ('returns true if a single path\'s acculative value from root to leaf equals a given integer, n, and false if no path does', () => {
+  it ('returns true if a single path\'s accumulative value from root to leaf equals a given integer, n, and false if no path does', () => {
     let binaryTree = new BT();
     binaryTree.addNode(1);
     binaryTree.addNode(2);
