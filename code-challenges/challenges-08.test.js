@@ -9,13 +9,12 @@ Write a function named sayHello that sends the message, 'Hello from the back-end
 
 // Express sever here
 const createServer = () => {
-  const express=require('express');
-  const app=express();
+  const express = require('express');
+  const app = express();
   app.get('/hello', sayHello);
 
-  var server = app.listen(3301, function () {
-    var port = server.address().port;
-    console.log('Example app listening at port', port);
+  const server = app.listen(3301, function () {
+    // const port = server.address().port;
   });
   return server;
 };
@@ -35,8 +34,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
-  let odds = arr.filter(n => (n % 2));
-  return odds;
+  return arr.filter(n => (n % 2));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +64,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
-  return arr.filter(n => !forbiddenValues.includes(n)); 
+  return arr.filter(n => !forbiddenValues.includes(n));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,18 +108,21 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
+  return arr.filter(stat => stat.baseStat > minBaseStat);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
-Write a function named getStatName that is an extension of your getBaseStatGreaterThan function from challenge 4. For this function, extend your solution from challenge 4 to only return the name of the stat, rather than the entire stat object.
+Write a function named getStatName that is an extension of your getBaseStatGreaterThan function from challenge 5. For this function, extend your solution from challenge 5 to only return the name of the stat, rather than the entire stat object.
 
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  let filtered = arr.filter(stat => stat.baseStat > minBaseStat);
+  return filtered.map(item => item.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -272,7 +273,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the stats that are greater than the input', () => {
     expect(getBaseStatGreaterThan(snorlaxData.stats, 75)).toStrictEqual([ { stat: { url: 'https://pokeapi.co/api/v2/stat/5/', name: 'special-defense' }, effort: 2, baseStat: 110 } ]);
     expect(getBaseStatGreaterThan(snorlaxData.stats, 75).length).toStrictEqual(1);
@@ -283,7 +284,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the name of the stats that exceed that maximum', () => {
     expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
     expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
