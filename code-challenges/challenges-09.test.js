@@ -29,9 +29,9 @@ const createServer = () => {
   // Solution code here...
   app.get('/events', getCurrentEvents);
 
-  var server = app.listen(3301, function () {
-    var port = server.address().port;
-    console.log('Example app listening at port', port);
+  const server = app.listen(3301, function () {
+    // const port = server.address().port;
+    // console.log('Example app listening at port', port);
   });
   return server;
 };
@@ -158,7 +158,7 @@ const currentEvents = {
       url: 'https://bgr.com/2020/04/13/coronavirus-mask-effectiveness-surgical-how-to/'
     }
   ]
-}
+};
 
 function getCurrentEvents(request, response) {
   // Solution code here...
@@ -170,7 +170,7 @@ const mapCurrentEvents = () => {
   // Solution code here...
   let currentEventsArray = currentEvents.news.map(newObject => new Event(newObject));
   return currentEventsArray;
-}
+};
 
 function Event(obj) {
   // Solution code here...
@@ -192,20 +192,19 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
-  let numberOfArray = arr.reduce((acc, val, idx) => {
+  return arr.reduce((acc, val, idx) => {
     acc = idx + 1;
     return acc;
   }, 1);
-  return numberOfArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named returnNames that, given the Star Wars data, below, uses reduce to return an array containing the names of the characters.
+Write a function named returnNames that, given the Star Wars data below, uses reduce to return an array containing the names of the characters.
 ------------------------------------------------------------------------------------------------ */
 
-let starWarsData = [{
+const starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
   mass: '77',
@@ -258,11 +257,10 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
-  let namesArray = arr.reduce((acc, values, idx) => {
-    acc.push(values.name);
+  return arr.reduce((acc, val) => {
+    acc.push(val.name);
     return acc;
   }, []);
-  return namesArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
