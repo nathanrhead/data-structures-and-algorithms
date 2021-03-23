@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 // Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
@@ -142,7 +143,7 @@ class BinaryTree {
   contains(value) {
     if (!this.root) return null;
     let boolean = false;
-    let _walk = (node) => {
+    const _walk = (node) => {
       if (node.value === value) { boolean = true; }
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
@@ -156,7 +157,7 @@ class BinaryTree {
     let treeMax = 0;
     if (!this.root) return null;
 
-    let _walk = (node) => {
+    const _walk = (node) => {
       if (node.value > treeMax) { treeMax = node.value; }
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
@@ -184,6 +185,18 @@ class BinaryTree {
     return boolean;
   }
 
+  // This method counts the number of levels between the root and the leaf furthest away from it, including the root level. If you want to count of the number of edges between the root and the furthest-most leaf, return -1 instead of 0, if the root === null.
+  getDepth() {
+    if (!this.root) return 0; // There is no height.
+
+    const _findDepth = root => {
+      if (!root) return 0; // Set to return -1 if you want to count edges.
+      let leftDepth = _findDepth(root.left);
+      let rightDepth = _findDepth(root.right);
+      return Math.max(leftDepth, rightDepth) + 1;
+    };
+    return _findDepth(this.root);
+  }
   // Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 
 }

@@ -142,5 +142,19 @@ describe('the BinaryTree class', () => {
     expect(() => binaryTree.pathWeighs(10).toBe(false));
     expect(() => binaryTree.pathWeighs(11).toBe(true));
   });
+
+  it ('returns the height of the tree, defined as the number of edges between the root and the outer-most leaf', () => {
+    let binaryTree = new BT();
+    binaryTree.add(3);
+    binaryTree.add(2);
+    binaryTree.add(5);
+    binaryTree.add(1);
+    binaryTree.add(4);
+    binaryTree.add(6);
+    binaryTree.add(7);
+    let depth = binaryTree.getDepth();
+    console.log({depth});
+    expect(depth).toEqual(4);
+  });
 });
 

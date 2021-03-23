@@ -1,6 +1,8 @@
 'use strict';
 
 const HashMap = require('./hashtable');
+// const LinkedList = require('../data-structures/linked-list/linked-list.js');
+const LinkedList = require('./hashtable');
 
 describe('Hashtables', () => {
 
@@ -14,7 +16,6 @@ describe('Hashtables', () => {
     expect(hashtable.map[4].head.value).toEqual( {yellow: 'жёлтый'} );
     expect(hashtable.map[0].head.value).toEqual( {orange: 'оранжевый'} );
     expect(hashtable.map[2].head.value).toEqual( {blue: 'синий'} );
-
   });
 
   it ('handles collisions as needed', () => {
@@ -38,7 +39,7 @@ describe('Hashtables', () => {
     expect(hashtable3.map[269].head.value).toEqual({red: 'красный'} );
   });
 
-  it ('retrieves a key-value pair based on the key and returns the value', () => {
+  it ('it retrieves a key-value pair based on the key and returns the value', () => {
     let hashtable = new HashMap(10);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
@@ -48,21 +49,23 @@ describe('Hashtables', () => {
     expect(hashtable.map[2].head.value.yellow).toEqual('жёлтый');
   });
 
-  it ('retrieves a value from a bucket within the hashtable that has a collision', () => {
+  it ('it retrieves a value from a bucket within the hashtable that has a collision', () => {
     let hashtable = new HashMap(2);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
     hashtable.add('blue', 'синий');
+    hashtable.get('yellow');
     let result = hashtable.get('yellow');
     expect(result).toEqual('жёлтый');
   });
 
-  it ('returns null when trying to get a value from a hashtable with no entries', () => {
+  it ('returns null when tyring to get a value from a hashtable with no entries', () => {
     let hashtable = new HashMap(0);
-    let result = hashtable.get('red');
+    let result = hashtable.get('yellow');
     expect(result).toBe(null);
   });
+
 
   it ('returns null for a key that does not exist in the hashtable', () => {
     let hashtable = new HashMap(10);
@@ -71,7 +74,7 @@ describe('Hashtables', () => {
   });
 
   it ('returns true if a key already exists in the table and false if it does not', () => {
-    let hashtable = new HashMap(2);
+    let hashtable = new HashMap(10);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
@@ -92,8 +95,24 @@ describe('Hashtables', () => {
     hashtable.add('blue', 'синий');
     const result = hashtable.contains('foreign');
     const result1 = hashtable.contains('black');
-    expect(result).toBe(false);
+    expect(result).toEqual(false);
     expect(result1).toBe(false);
+  });
+
+  it ('removes duplicate values from a linked list', () => {
+    let linkedList = new LinkedList();
+    linkedList.insert(1);
+    linkedList.insert(1);
+    linkedList.insert(2);
+    linkedList.insert(2);
+    linkedList.insert(2);
+    linkedList.insert(3);
+    linkedList.insert(3);
+    linkedList.insert(3);
+    linkedList.insert(4);
+    console.log({linkedList});
+    const result = linkedList.removeDuplicates();
+    console.log({result});
   });
 });
 

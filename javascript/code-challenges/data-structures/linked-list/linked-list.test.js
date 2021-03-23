@@ -1,7 +1,7 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../linked-list');
+const LinkedList = require('./linked-list');
 
 describe('Linked List', () => {
   it('works', () => {
@@ -104,22 +104,5 @@ describe('Linked List', () => {
     list.insert('G');
     const result = list.kthFromTheEnd(3);
     expect(result).toEqual('C');
-  });
-
-  it ('returns a revised list with all duplicate values removed', () => {
-    let list = new LinkedList();
-    list.insert(1);
-    list.insert(2);
-    list.insert(2);
-    list.insert(3);
-    list.insert(3);
-    list.insert(3);
-    list.insert(1);
-    list.insert(5);
-    const head = list.head;
-    // console.log({head});
-    const result = list.removeDuplicates(head);
-    console.log({result});
-    // expect(answer).toEqual('');
   });
 });
