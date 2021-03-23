@@ -3,15 +3,15 @@
 const HashMap = require('./hashtable');
 
 describe('Hashtables', () => {
-  
+
   it ('takes in both the key and value and hashes the key and adds the key and value pair to the table', () => {
     let hashtable = new HashMap(6);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
     hashtable.add('blue', 'синий');
-    expect(hashtable.map[3].head.value).toEqual( {red: 'красный'} )
-    expect(hashtable.map[4].head.value).toEqual( {yellow: 'жёлтый'} )
+    expect(hashtable.map[3].head.value).toEqual( {red: 'красный'} );
+    expect(hashtable.map[4].head.value).toEqual( {yellow: 'жёлтый'} );
     expect(hashtable.map[0].head.value).toEqual( {orange: 'оранжевый'} );
     expect(hashtable.map[2].head.value).toEqual( {blue: 'синий'} );
 
@@ -38,42 +38,40 @@ describe('Hashtables', () => {
     expect(hashtable3.map[269].head.value).toEqual({red: 'красный'} );
   });
 
-  it ('it retrieves a key-value pair based on the key and returns the value', () => {
+  it ('retrieves a key-value pair based on the key and returns the value', () => {
     let hashtable = new HashMap(10);
-    hashtable.add('red', 'красный');
-    hashtable.add('yellow', 'жёлтый');
-    hashtable.add('orange', 'оранжевый');
-    hashtable.add('blue', 'синий');
-    hashtable.get('yellow'); 
-    expect(hashtable.map[2].head.value.yellow).toEqual('жёлтый');
-  });
-
-  it ('it retrieves a value from a bucket within the hashtable that has a collision', () => {
-    let hashtable = new HashMap(2);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
     hashtable.add('blue', 'синий');
     hashtable.get('yellow');
+    expect(hashtable.map[2].head.value.yellow).toEqual('жёлтый');
+  });
+
+  it ('retrieves a value from a bucket within the hashtable that has a collision', () => {
+    let hashtable = new HashMap(2);
+    hashtable.add('red', 'красный');
+    hashtable.add('yellow', 'жёлтый');
+    hashtable.add('orange', 'оранжевый');
+    hashtable.add('blue', 'синий');
     let result = hashtable.get('yellow');
     expect(result).toEqual('жёлтый');
   });
 
-  it ('returns null when tyring to get a value from a hashtable with no entries', () => {
+  it ('returns null when trying to get a value from a hashtable with no entries', () => {
     let hashtable = new HashMap(0);
-    let result = hashtable.get('yellow');
+    let result = hashtable.get('red');
     expect(result).toBe(null);
   });
-
 
   it ('returns null for a key that does not exist in the hashtable', () => {
     let hashtable = new HashMap(10);
     let result = hashtable.get('yellow');
     expect(result).toBe(null);
-  }); 
+  });
 
   it ('returns true if a key already exists in the table and false if it does not', () => {
-    let hashtable = new HashMap(10);
+    let hashtable = new HashMap(2);
     hashtable.add('red', 'красный');
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
@@ -94,12 +92,10 @@ describe('Hashtables', () => {
     hashtable.add('blue', 'синий');
     const result = hashtable.contains('foreign');
     const result1 = hashtable.contains('black');
-    expect(result).toEqual(false);
+    expect(result).toBe(false);
     expect(result1).toBe(false);
-
-  })
-
-})
+  });
+});
 
 // This is hashtable.map:
 // Hashtable: [
