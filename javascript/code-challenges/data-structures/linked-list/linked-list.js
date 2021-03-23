@@ -109,6 +109,19 @@ class LinkedList {
     }
     return kthFromCurrent.value;
   }
+
+  // This method removes duplicate values from a singularly linked list and must be passed the list's head to work. Needs to be reworked to work with the entire list.
+  removeDuplicates(head) {
+
+    if (!head.next) return head;
+    if (head.value === head.next.value) {
+      head.next = head.next.next;
+      this.removeDuplicates(head);
+    } else {
+      this.removeDuplicates(head.next);
+    }
+    return head;
+  }
 }
 
 module.exports = LinkedList;

@@ -111,6 +111,11 @@ class HashMap {
       }
     } return false;
   }
+
+  removeDuplicates(key) {
+    const hash = this.hash(key);
+    if (!this.map[hash]) throw 'The '
+  }
 }
 
 module.exports = HashMap;
