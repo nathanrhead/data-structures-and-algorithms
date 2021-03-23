@@ -105,4 +105,19 @@ describe('Linked List', () => {
     const result = list.kthFromTheEnd(3);
     expect(result).toEqual('C');
   });
+
+  it ('removes duplicate values from a linked list', () => {
+    let linkedList = new LinkedList();
+    linkedList.insert(1);
+    linkedList.insert(1);
+    linkedList.insert(2);
+    linkedList.insert(2);
+    linkedList.insert(2);
+    linkedList.insert(3);
+    linkedList.insert(3);
+    linkedList.insert(3);
+    linkedList.insert(4);
+    const result = linkedList.removeDuplicates();
+    console.log({result});
+  });
 });

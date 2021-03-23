@@ -1,8 +1,6 @@
 'use strict';
 
 const HashMap = require('./hashtable');
-// const LinkedList = require('../data-structures/linked-list/linked-list.js');
-const LinkedList = require('./hashtable');
 
 describe('Hashtables', () => {
 
@@ -97,22 +95,6 @@ describe('Hashtables', () => {
     const result1 = hashtable.contains('black');
     expect(result).toEqual(false);
     expect(result1).toBe(false);
-  });
-
-  it ('removes duplicate values from a linked list', () => {
-    let linkedList = new LinkedList();
-    linkedList.insert(1);
-    linkedList.insert(1);
-    linkedList.insert(2);
-    linkedList.insert(2);
-    linkedList.insert(2);
-    linkedList.insert(3);
-    linkedList.insert(3);
-    linkedList.insert(3);
-    linkedList.insert(4);
-    console.log({linkedList});
-    const result = linkedList.removeDuplicates();
-    console.log({result});
   });
 });
 

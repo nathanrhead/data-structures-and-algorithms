@@ -1,6 +1,7 @@
 'use strict';
 
 const Node = require('./node');
+const Hashtable = require('../../hashtables/hashtable');
 
 class LinkedList {
   constructor() {
@@ -21,12 +22,12 @@ class LinkedList {
 
   // Look for the presence of a given value in the list.
   includes(value) {
-    let currentNode = this.head;
-    while (currentNode) {
-      if (currentNode.value === value) {
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
         return true;
       }
-      currentNode = currentNode.next;
+      current = current.next;
     }
     return false;
   }
@@ -54,11 +55,11 @@ class LinkedList {
       this.head = node;
       return;
     }
-    let currentNode = this.head;
-    while (currentNode.next) {
-      currentNode = currentNode.next;
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
     }
-    currentNode.next = node;
+    current.next = node;
   }
 
   insertBefore(value, newValue) {
@@ -79,15 +80,15 @@ class LinkedList {
   }
 
   insertAfter(value, newValue) {
-    let currentNode = this.head;
-    while (currentNode) {
-      if (currentNode.value === value) {
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
         let node = new Node(newValue);
-        node.next = currentNode.next;
-        currentNode.next = node;
+        node.next = current.next;
+        current.next = node;
         return node;
       }
-      currentNode = currentNode.next;
+      current = current.next;
     }
     throw new Error('No match.'); // If there is no match.
   }
@@ -108,6 +109,22 @@ class LinkedList {
       kthFromCurrent = kthFromCurrent.next;
     }
     return kthFromCurrent.value;
+  }
+
+  removeDuplicates() {
+    if (!this.head) throw 'This value doesn\'t exist in the lsit.';
+    console.log('This:', this);
+
+    let hashmap = new Hashtable(5);
+
+    // Iterate through the linked list to populate the hashtable.
+    let current = this.head;
+    while (current) {
+      hashmap.add(current.value);
+      current = current.next;
+    }
+
+    // Iterate through the hashmap and, for every index with a head.next, compare the values and remove idential entries.
   }
 }
 

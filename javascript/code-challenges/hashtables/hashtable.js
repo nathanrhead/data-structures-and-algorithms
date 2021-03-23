@@ -12,13 +12,13 @@ class LinkedList {
     this.head = null;
   }
 
-  // Insert a node into the bucket (linked list) at its hash.
-  insert(entry) {
-    if (this.head === null) {
-      const node = new Node(entry);
+  // Insert a node at the head.
+  insert(val) {
+    if (!this.head) {
+      const node = new Node(val);
       this.head = node;
     } else {
-      const node = new Node(entry);
+      const node = new Node(val);
       node.next = this.head;
       this.head = node;
     }
@@ -34,9 +34,13 @@ class HashMap {
 
   //This hashes the key.
   hash(key) {
-    return key.split('').reduce((acc, val) => {
-      return acc + val.charCodeAt(0);
-    }, 0) * 599 % this.size;
+    if (typeof key === 'string') {
+      key.split('').reduce((acc, val) => {
+        return acc + val.charCodeAt(0);
+      }, 0) * 599 % this.size;
+    } else if (typeof key === 'number') {
+      return key * 599 & this.size;
+    }
   }
 
   // This adds the node to the hashtable.
@@ -53,62 +57,63 @@ class HashMap {
   }
 
   // // It takes in a key and returns the value from the table.
-  // get(key) {
-  //   if (this.size === 0) return null;
-  //   const hash = this.hash(key);
+  get(key) {
+    // 1. Hash the key.
+    const hash = this.hash(key);
 
-  //   if (!this.map[hash]) return null;
+    // 2. Error check for an empty entry.
+    if (!this.map[hash]) return null;
 
-  //   if (key === Object.keys(this.map[hash].head.value)) {
-  //     return this.map[hash].head.value[key];
-  //   } else {
-  //     let current = this.map[hash].head;
-  //     while (current.next !== null) {
-  //       current = current.next;
-  //       if (key == Object.keys(current.value)) {
-  //         // console.log('key:', key);
-  //         let value = current.value[key];
-  //         return value;
-  //       }
-  //     }
-  //   }
-  // }
+    // Save the key of the value of the head node.
+    let nodeKey = Object.keys(this.map[hash].head.value);
+
+    if (key === nodeKey[0]) { // If the head node's key, return that value;
+      return this.map[hash].head.value[key];
+    } else { // Otherwise, iterate through the linked list comparing keys.
+      let current = this.map[hash].head;
+      while (current.next) {
+        current = current.next;
+        let val = Object.keys(current.value);
+        if (key === val[0]) {
+          return current.value[key];
+        }
+      }
+    }
+  }
 
   // Code review's get().
-
-  get(key) {
-    //// 1. Hash the key.
-    const hash = this.hash(key);
-    //// 2. Error handling: If there isn't a hash, return null
-    if (!this.map[hash]) return null;
-    //// 3. Make the hashed position, which is a linked list, equal to current, in order to be able to traverse the bucket.
-    let current = this.map[hash].head;
-    //// 4. While current exists, if the keys match, return the value at that key.
-    while (current) {
-      if (current.value.hasOwnProperty(key)) { return current.value[key]; }
-      current = current.next;
-    }
-    // If the key is not found, return null.
-    return null;
-  }
+  // get(key) {
+  //   //// 1. Hash the key.
+  //   const hash = this.hash(key);
+  //   //// 2. Error handling: If there isn't a hash, return null
+  //   if (!this.map[hash]) return null;
+  //   //// 3. Make the hashed position, which is a linked list, equal to current, in order to be able to traverse the bucket.
+  //   let current = this.map[hash].head;
+  //   //// 4. While current exists, if the keys match, return the value at that key.
+  //   while (current) {
+  //     // eslint-disable-next-line no-prototype-builtins
+  //     if (current.value.hasOwnProperty(key)) { return current.value[key]; }
+  //     current = current.next;
+  //   }
+  //   // If the key is not found, return null.
+  //   return null;
+  // }
 
   // Takes in the key and returns a boolean, indicating whether the key exists in the table already.
   contains(key) {
     const hash = this.hash(key);
-
     if (!this.map[hash]) return false;
 
-    // This part's not working right; it's supposed to look for keys beyond the head, but it's returning undefined, instead of false.
-    if (key == Object.keys(this.map[hash].head.value)) { return true }
+    const val = Object.keys(this.map[hash].head.value);
+    if (key === val[0]) { return true; }
     else {
       let current = this.map[hash].head;
-      while (current.next !== null) {
-        current = current.next;
-        console.log('Key:', [key]);
-        console.log(Object.keys(current.value));
-        return Object.keys(current.value) == [key] ? true : false;
+      while (current.next) {
+        let val = Object.keys(current.value);
+        if (val[0] === key) return true;
+        else current = current.next;
       }
-    }
+    } return false;
   }
 }
 
