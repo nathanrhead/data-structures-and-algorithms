@@ -51,8 +51,10 @@ class HashMap {
     //2 Create the entry key-value pair.
     const entry = { [key]: value };
 
+    //3 Create a new linked list if nothing resides at this hash point.
     if (!this.map[hash]) this.map[hash] = new LinkedList();
 
+    // 4 Inster the new object at the corresponding hash point.
     this.map[hash].insert(entry);
   }
 
@@ -105,8 +107,10 @@ class HashMap {
     if (!this.map[hash]) return false;
 
     const val = Object.keys(this.map[hash].head.value);
-    if (key === val[0]) { return true; }
-    else {
+
+    if (key === parseInt(val[0])) {
+      return true;
+    } else {
       let current = this.map[hash].head;
       while (current.next) {
         let val = Object.keys(current.value);

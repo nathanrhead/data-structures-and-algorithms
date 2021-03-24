@@ -112,19 +112,26 @@ class LinkedList {
   }
 
   removeDuplicates() {
-    if (!this.head) throw 'This value doesn\'t exist in the lsit.';
-    console.log('This:', this);
+    if (!this.head) throw 'This value doesn\'t exist in the list.';
+    if (!this.head.next) return this.head;
 
     let hashmap = new Hashtable(5);
-
     // Iterate through the linked list to populate the hashtable.
     let current = this.head;
+    let previous = null;
     while (current) {
-      hashmap.add(current.value);
-      current = current.next;
+      if (hashmap.contains(current.value)) {
+        previous.next = current.next;
+        current = current.next;
+      } else {
+        hashmap.add(current.value, current.value);
+        previous = current;
+        current = current.next;
+      }
     }
-
-    // Iterate through the hashmap and, for every index with a head.next, compare the values and remove idential entries.
+    console.log({hashmap});
+    console.log('This:', this.toString());
+    return this.toString();
   }
 }
 

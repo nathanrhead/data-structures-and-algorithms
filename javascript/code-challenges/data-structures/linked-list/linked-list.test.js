@@ -119,5 +119,6 @@ describe('Linked List', () => {
     linkedList.insert(4);
     const result = linkedList.removeDuplicates();
     console.log({result});
+    expect(result).toEqual('{ 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL');
   });
 });
