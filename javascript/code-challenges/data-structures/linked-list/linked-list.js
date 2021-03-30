@@ -129,8 +129,6 @@ class LinkedList {
         current = current.next;
       }
     }
-    console.log({hashmap});
-    console.log('This:', this.toString());
     return this.toString();
   }
 }
