@@ -71,12 +71,11 @@ class HashMap {
       return this.map[hash].head.value[key];
     } else { // Otherwise, iterate through the linked list comparing keys.
       let current = this.map[hash].head;
+      if (!current.next) return null;
       while (current.next) {
         current = current.next;
         let val = Object.keys(current.value);
-        if (key === val[0]) {
-          return current.value[key];
-        }
+        return key === val[0] ? current.value[key] : null;
       }
     }
   }
