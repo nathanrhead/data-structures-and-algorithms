@@ -35,7 +35,7 @@ class HashMap {
   //This hashes the key.
   hash(key) {
     if (typeof key === 'string') {
-      key.split('').reduce((acc, val) => {
+      return key.split('').reduce((acc, val) => {
         return acc + val.charCodeAt(0);
       }, 0) * 599 % this.size;
     } else if (typeof key === 'number') {
@@ -47,14 +47,12 @@ class HashMap {
   add(key, value) {
     // 1. Hash the key.
     const hash = this.hash(key);
-
-    //2 Create the entry key-value pair.
+    // 2. Create the entry key-value pair.
     const entry = { [key]: value };
-
-    //3 Create a new linked list if nothing resides at this hash point.
+    // 3. Create a new linked list if nothing resides at this hash point.
     if (!this.map[hash]) this.map[hash] = new LinkedList();
 
-    // 4 Inster the new object at the corresponding hash point.
+    // 4. Insert the new object at the corresponding hash point.
     this.map[hash].insert(entry);
   }
 
@@ -108,7 +106,7 @@ class HashMap {
 
     const val = Object.keys(this.map[hash].head.value);
 
-    if (key === parseInt(val[0])) {
+    if (key === parseInt(val[0]) || key === val[0]) {
       return true;
     } else {
       let current = this.map[hash].head;
