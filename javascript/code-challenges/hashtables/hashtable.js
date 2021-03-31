@@ -47,9 +47,11 @@ class HashMap {
   add(key, value) {
     // 1. Hash the key.
     const hash = this.hash(key);
+
     // 2. Create the entry key-value pair.
     const entry = { [key]: value };
     // 3. Create a new linked list if nothing resides at this hash point.
+
     if (!this.map[hash]) this.map[hash] = new LinkedList();
 
     // 4. Insert the new object at the corresponding hash point.
@@ -70,13 +72,15 @@ class HashMap {
     if (key === nodeKey[0]) { // If the head node's key, return that value;
       return this.map[hash].head.value[key];
     } else { // Otherwise, iterate through the linked list comparing keys.
-      let current = this.map[hash].head;
-      if (!current.next) return null;
-      while (current.next) {
-        current = current.next;
+      let current = this.map[hash].head.next;
+      if (!current) return null;
+      while (current) {
         let val = Object.keys(current.value);
-        return key === val[0] ? current.value[key] : null;
+        console.log(key, val[0]);
+        if (key === val[0]) return current.value[key];
+        else current = current.next;
       }
+      return null;
     }
   }
 

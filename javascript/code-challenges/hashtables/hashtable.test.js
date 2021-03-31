@@ -47,20 +47,22 @@ describe('Hashtables', () => {
     expect(hashtable.map[2].head.value.yellow).toEqual('жёлтый');
   });
 
-  it ('it retrieves a value from a bucket within the hashtable that has a collision', () => {
+  it ('it retrieves a value from a bucket within a hashtable that has a collision', () => {
     let hashtable = new HashMap(2);
     hashtable.add('red', 'красный');
-    hashtable.add('yellow', 'жёлтый');
+    hashtable.add('purple', 'фиолетовый');
     hashtable.add('orange', 'оранжевый');
     hashtable.add('blue', 'синий');
-    hashtable.get('yellow');
-    let result = hashtable.get('yellow');
-    expect(result).toEqual('жёлтый');
+
+    console.log('Hashtable at 0:', hashtable.map[0].head.next);
+
+    let result = hashtable.get('purple');
+    expect(result).toEqual('фиолетовый');
   });
 
   it ('returns null when tyring to get a value from a hashtable with no entries', () => {
     let hashtable = new HashMap(0);
-    let result = hashtable.get('yellow');
+    let result = hashtable.get('pink');
     expect(result).toBe(null);
   });
 
