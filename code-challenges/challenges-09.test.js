@@ -434,13 +434,9 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
-  let charsWithA = arr.filter(val => val.name.includes('a'));
-  return charsWithA.reduce((acc, val) => {
-    if (val.children) {
-      val.children.forEach(child => acc.push(child));
-    }
-    return acc;
-
+  let charsWithAandKids = arr.filter(val => val.name.includes('a') && val.children);
+  return charsWithAandKids.reduce((acc, val) => {
+    return acc = acc.concat(val.children);
   }, []);
 };
 
