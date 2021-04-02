@@ -3,17 +3,16 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function that iterates over an array of people objects 
+Write a function that iterates over an array of people objects
 and creates a new list of each person's full name using the array method 'map'.
-Each object will have the shape {firstName:string, lastName:string}
-E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
-should convert to ["Jane Doe", "James Bond"]
-Note the space in between first and last names.
-You can assume that neither firstName nor lastName will be blank
+Each object will have the shape {firstName:string, lastName:string},
+e.g., [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}] should be converted to ['Jane Doe', 'James Bond']
+Note the space in between the first and last names.
+You can assume that neither firstName nor lastName will be blank.
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
-  return people.map((objectOnly) => objectOnly.firstName + ' ' + objectOnly.lastName);
+  return people.map(val => val.firstName + ' ' + val.lastName);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,19 +25,18 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
- return /^\d{4}$/g.test(pin);
+  return /^\d{4}$/g.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named validateEmail that takes in an email address and validates it based
-on several rules:
-  - one word, or two words separated by a period, before the @ symbol
-  - can contain numbers
-  - can have any of the following top-level domains: .net, .com, or .org
-  - no other special characters
-  - no subdomains, ports, etc: must be of the form name@place.com, not name@sub.place.com:3000
+Write a function named validateEmail that takes in an email address and validates it based on several rules:
+  - one word, or two words separated by a period, before the @ symbol;
+  - can contain numbers;
+  - can have any of the following top-level domains: .net, .com, or .org;
+  - no other special characters;
+  - no subdomains, ports, etc: must be of the form name@place.com, not name@sub.place.com:3000.
 
 Return either true or false.
 
@@ -47,7 +45,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
-  let regex = /^(\w+|\w+\.?\w+)\@{1}\w+[.](com|net|org)$/g;
+  let regex = /^(\w+|\w+\.?\w+)@{1}\w+[.](com|net|org)$/g;
   if (email.match(regex)) {
     return true;
   } else {
@@ -78,9 +76,7 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
-  let regex = /^(\(\d{3}\)|\d{3})(\s?|\-)(\d{3})(\s?|\-?)(\d{4})$/g
-  // let regex = /\(?\d{3}\)?-? *\d{3}-? *-?\d{4}$/g;
-  // let regex = /^\(?\d{3,10}\)?[1 )]?\d{3,7}[- ]?\d{4}?$/g;
+  let regex = /^(\(\d{3}\)|\d{3})(\s?|-)(\d{3})(\s?|-?)(\d{4})$/g;
   if (phoneNumber.match(regex)) {
     return true;
   } else {
@@ -99,6 +95,8 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = elements => {
   // Solution code here...
+  let regex = /(\/\w+)\d*/gmi;
+  return elements.map(val => val.match(regex)).flat();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,11 +111,8 @@ Run your tests from the console: jest solutions-11.test.js
 
 describe('Testing challenge 1', () => {
   test('It should convert object to full name string', () => {
-
-    const people = [{ firstName: "Jane", lastName: "Doe" }, { firstName: "James", lastName: "Bond" }];
-
-    expect(toLastNames(people)).toStrictEqual(["Jane Doe", "James Bond"]);
-
+    const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
+    expect(toLastNames(people)).toStrictEqual(['Jane Doe', 'James Bond']);
   });
 });
 
@@ -188,7 +183,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the closing tags', () => {
     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
   });
