@@ -1,6 +1,6 @@
 'use strict';
 
-// to learn more about the cheerio library and what it is doing, look at its documentation: https://www.npmjs.com/package/cheerio
+// To learn more about the cheerio library and what it is doing, look at its documentation: https://www.npmjs.com/package/cheerio
 const cheerio = require('cheerio');
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,8 +20,8 @@ const $ = createSnippetWithJQuery(`
 `);
 
 const fixTheTypo = () => {
-// Solution code here...
-$('.pear').html('Pear');
+  // Solution code here...
+  $('.pear').html('Pear');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
-  return arr.map (results => results.charAt(0));
+  return arr.map(results => results.charAt(0));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,8 +47,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
-  return arr.filter (smileys =>  smileys.includes(':)') === true);
-}
+  return arr.filter(smileys => smileys.includes(':)'));
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -58,11 +58,7 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
-  let regex = /\D+/g;
-  return arr.map(numbers => numbers.replace(regex, ''));
-};
+const standardizePhoneNumbers = arr => arr.map(numbers => numbers.replace(/\D+/g, ''));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -72,9 +68,7 @@ Write a function named onlyOddChars that takes in a string and returns only the 
 For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
-const onlyOddChars = (str) => {
-  // Solution code here...
-};
+const onlyOddChars = str => str.split('').filter((val, idx) => idx % 2).join('');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -82,8 +76,19 @@ CHALLENGE 6 - Stretch Goal
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
-const allHappy = (arr) => {
-  // Solution code here...
+const allHappy = arr => {
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (!arr[i].includes(':)')) return false;
+  //   else continue;
+  // }
+  // return true;
+
+  for (let string of arr) {
+    if (!string.includes(':)')) return false;
+    else continue;
+  }
+  return true;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,9 +97,7 @@ CHALLENGE 7 - Stretch Goal
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => {
-  // Solution code here...
-};
+const findAnything = (arr, target) => arr.filter(string => string.includes(target));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -104,12 +107,17 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  for (let string of arr) {
+    if (!string.includes(target)) return false;
+    else continue;
+  }
+  return true;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
-We've been testing a new course enrollment system, and we think we have the bugs worked out, but in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
+We've been testing a new course enrollment system and we think we have the bugs worked out but, in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
 
 Write a function named unenrollBrook that takes in a two-dimensional array, where each array represents one course's roster and is an array of strings of the names of the people in that course.
 
@@ -120,6 +128,12 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  return arr.map(subArray => {
+    return subArray.reduce((acc, val) => {
+      if (!val.toLowerCase().includes('brook')) acc.push(val);
+      return acc;
+    }, []);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,9 +158,24 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 ------------------------------------------------------------------------------------------------ */
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+/*
+  arr: [
+    'Dancing on Mondays and Tuesdays',
+    'Meet the inventors! Monday, August 7',
+    'in the club on a Tuesday',
+    'Thursday Night Code',
+    'Saturday Night Fever'
+  ]
+*/
 
-const sortByDay = (arr) => {
+const sortByDay = arr => {
   // Solution code here...
+  return daysOfWeek.map(day => {
+    return arr.reduce((acc, val) => {
+      if (val.includes(day)) acc.push(val);
+      return acc;
+    }, []);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,8 +186,12 @@ Write a function named characterByIndex that takes in an array of strings and re
 For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
-const characterByIndex = (arr) => {
+const characterByIndex = arr => {
   // Solution code here...
+  return arr.reduce((acc, val, idx) => {
+    acc.push(val[idx]);
+    return acc;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,7 +243,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
@@ -219,7 +252,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -229,7 +262,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -238,7 +271,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
@@ -248,7 +281,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should remove Brook from all courses', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
@@ -266,7 +299,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort events by the day on which they happen', () => {
     const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
     const sortedEvents = sortByDay(events);
@@ -290,7 +323,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the ith character of the ith string', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
@@ -300,6 +333,6 @@ xdescribe('Testing challenge 11', () => {
   });
 });
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
 }
