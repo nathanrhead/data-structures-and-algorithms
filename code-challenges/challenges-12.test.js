@@ -3,19 +3,13 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function that finds maximum value in an array
-using the 'reduce' method.
+Write a function that finds maximum value in an array using the 'reduce' method.
 
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
-
-  return arr.reduce( (acc, val) => ( acc < val ? acc = val : acc));
-  // let greatestValue = arr.reduce( (acc, val) => {
-  //       return ( acc < val ? acc = val : acc)
-  // }, 0)
-  // return greatestValue;
+  return arr.reduce((acc, val) => acc < val ? acc = val : acc);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,8 +36,8 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-  return stores.reduce( (acc, b) => {
-    return acc.map( (a, idx) => {
+  return stores.reduce((acc, b) => {
+    return acc.map((a, idx) => {
       return a + b[idx];
     });
   });
@@ -72,8 +66,9 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 const salesData = (hours, data) => {
   // Solution code here...
   let objectArray = [];
-  hours.forEach( (hours, idx) => {
-    let object = { sales: `${data[idx]} cookies`, time: hours };
+  let object = {};
+  hours.forEach((hours, idx) => {
+    object = { sales: `${data[idx]} cookies`, time: hours };
     objectArray.push(object);
   });
   return objectArray;
@@ -100,26 +95,20 @@ const errands = [
   }
 ];
 
-const howManyTreats = (arr) => {
+const howManyTreats = arr => {
   // Solution code here...
-  return arr.reduce( (acc, val) => {
-    val.items.map(treats => {
-      if (treats.name === 'Treats') {
-        acc = treats.quantity;
-      } else {
-        return acc;
-      }
-  });
-  return acc;
+  return arr.reduce((acc, val) => {
+    val.items.map(treats => treats.name === 'Treats' ? acc = treats.quantity : acc);
+    return acc;
   }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
-Write a function named battleship that accepts a 2D array and two numbers: a row coordinate and a column coordinate.
+Write a function named battleship that accepts a 2D array and two numbers, i.e., a row coordinate and a column coordinate.
 
-Return "hit" or "miss" depending on if there's part of a boat at that position in the array. Assume the array has only one of two values at each index. '#' for part of a boat, or ' ' for open water.
+Return "hit" or "miss" depending on if there's part of a boat at that position in the array. Assume the array has only one of two values at each index: '#' for part of a boat, or ' ' for open water.
 
 Here is a sample board:
 [
@@ -134,6 +123,7 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  return board[row][col] === '#' ? 'hit' : 'miss';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,6 +136,9 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  return numbers.flat().reduce((acc, val) => {
+    return acc * val;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,6 +159,12 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  const oneD = weather.flat();
+  const length = oneD.length;
+  let sum = weather.flat().reduce((acc, val) => {
+    return acc + val;
+  });
+  return sum / length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -178,7 +177,7 @@ Calculate the average temperature for each week and return the value of the lowe
 For example, in the data set below, the lowest weekly average is 46, which is the average of the temperatures in week 2. All other weeks have average temperatures that are greater than 46.
 ------------------------------------------------------------------------------------------------ */
 
-let lowestWeeklyTemperatureData = [
+const lowestWeeklyTemperatureData = [
   [33, 64, 58, 65, 71, 57, 60],
   [40, 45, 33, 53, 44, 59, 48],
   [55, 54, 60, 53, 59, 57, 61],
@@ -187,6 +186,15 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let averages = weather.map(acc => {
+    return acc.reduce((a, b) => {
+      a = a + b;
+      return a;
+    });
+  }).reduce((acc, val) => {
+    return acc > val ? acc = val : acc;
+  });
+  return averages / 7;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -203,6 +211,16 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+  const array = str.split('\n'); // ['1,1,1', '4,4,4', '9,9,9']
+  let sums = array.map(val => { // val[0] = '1,1,1'; val[1] = '4,4,4'
+    let sum = val.split(',').reduce((acc, val) => {
+      val = parseInt(val);
+      acc += val;
+      return acc;
+    }, 0);
+    return sum;
+  });
+  return sums;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -258,7 +276,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
@@ -277,7 +295,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
@@ -290,20 +308,20 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return the lowest weekly average temperature within the data set', () => {
     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);
