@@ -20,7 +20,6 @@ let insertShiftArray = (arr, val) => {
     if(i === midPoint) { outputArray[i] = val; }
     if(i > midPoint) { outputArray[i] = arr[i - 1]; }
   }
-  console.log(outputArray);
   return outputArray;
 };
 

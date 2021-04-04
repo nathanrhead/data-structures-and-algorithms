@@ -54,8 +54,6 @@ describe('Hashtables', () => {
     hashtable.add('orange', 'оранжевый');
     hashtable.add('blue', 'синий');
 
-    console.log('Hashtable at 0:', hashtable.map[0].head.next);
-
     let result = hashtable.get('purple');
     expect(result).toEqual('фиолетовый');
   });

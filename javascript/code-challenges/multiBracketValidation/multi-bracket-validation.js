@@ -11,7 +11,6 @@ function multiBracketValidation(str) {
   let brackets = [];
 
   let inputArray = str.split('');
-  console.log({inputArray});
   for (let i = 0; i <= inputArray.length - 1; i++) {
     if (inputArray[i] === '(' || inputArray[i] === ')') parentheses.push(inputArray[i]);
     if (inputArray[i] === '{' || inputArray[i] === '}') curlyBraces.push(inputArray[i]);

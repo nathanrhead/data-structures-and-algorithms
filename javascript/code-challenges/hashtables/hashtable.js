@@ -76,7 +76,6 @@ class HashMap {
       if (!current) return null;
       while (current) {
         let val = Object.keys(current.value);
-        console.log(key, val[0]);
         if (key === val[0]) return current.value[key];
         else current = current.next;
       }

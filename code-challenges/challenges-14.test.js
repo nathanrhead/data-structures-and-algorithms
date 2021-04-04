@@ -3,10 +3,10 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Complete the createServer function to include routes:
-a GET request to / should respond with status of 200;
-a DELETE request to /things/1 should respond with status of 405;
-any other route should return status of 404
+Complete the createServer function to include the following routes:
+- a GET request to "/"" should respond with status of 200;
+- a DELETE request to "/things/1" should respond with status of 405;
+- any other route should return status of 404.
 ------------------------------------------------------------------------------------------------ */
 const createServer = () => {
   const express = require('express');
@@ -17,9 +17,9 @@ const createServer = () => {
   app.delete('/things/1', (req, res) => res.status(405).send());
   app.use('*', (req, res) => res.status(404).send());
 
-  var server = app.listen(3000, function () {
-    var port = server.address().port;
-    console.log('Example app listening at port', port);
+  const server = app.listen(3000, function () {
+    // const port = server.address().port;
+    // console.log('Example app listening at port', port);
   });
   return server;
 };
@@ -34,13 +34,13 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
-return arr.map(string => string.charAt(0).toUpperCase() + string.slice(1));
-}
+  return arr.map(string => string.charAt(0).toUpperCase() + string.slice(1));
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named biggerThanLuke that, given the Star Wars data, below, returns the names of the characters whose mass is greater than Luke's.
+Write a function named biggerThanLuke that, given the Star Wars data below, returns the names of the characters whose mass is greater than Luke's.
 
 The names should be combined into a single string with each character name separated by a dash.
 
@@ -110,17 +110,16 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
-  let answer = arr.reduce( (acc, val, idx) => {
-    if(val.mass > parseInt(arr[0].mass)) {
+  return arr.reduce((acc, val) => {
+    if (parseInt(val.mass) > parseInt(arr[0].mass)) {
       acc.push(val.name);
       return acc;
     } else {
       return acc;
     }
-    }, [])
+  }, [])
     .join(' - ');
-    return answer;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -138,7 +137,7 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
- return arr.sort( (a, b) => (a[property] < b[property] ? -1 : 1));
+  return arr.sort((a, b) => (a[property] < b[property] ? -1 : 1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,6 +154,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  const regex = /(https:\/\/)/gmi;
+  return url.match(regex) ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +165,7 @@ Write a function named detectTicTacToeWin that accepts a two-dimensional array o
 
 This function should return either true or false to indicate if someone won the game.
 
-Instead of trying to write crazy for loops to automate checking the rows, columns and diagonals consider writing one helper function that accepts three coordinate pairs and checks the values of the array at those locations. For instance helpCheck(row1, col1, row2, col2, row3, col3).
+Instead of trying to write crazy for-loops to automate checking the rows, columns and diagonals, consider writing one helper function that accepts three coordinate pairs and checks the values of the array at those locations. For instance helpCheck(row1, col1, row2, col2, row3, col3).
 
 Your function does not need to work for boards of any size other than 3x3.
 
@@ -178,6 +179,27 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  const row1 = board[0];
+  const row2 = board[1];
+  const row3 = board[2];
+
+  const col1 = [board[0][0], board[1][0], board[2][0]];
+  const col2 = [board[0][1], board[1][1], board[2][1]];
+  const col3 = [board[0][2], board[1][2], board[2][2]];
+
+  return helpCheck(row1, col1, row2, col2, row3, col3);
+};
+
+const helpCheck = (row1, col1, row2, col2, row3, col3) => {
+  if (row1[0] === 'X' && row1[1] === 'X' && row1[2] === 'X' || row1[0] === 'O' && row1[1] === 'O' && row1[2] === 'O') return true;
+  else if (row2[0] === 'X' && row2[1] === 'X' && row2[2] === 'X' || row2[0] === 'O' && row2[1] === 'O' && row2[2] === 'O') return true;
+  else if (row3[0] === 'X' && row3[1] === 'X' && row3[2] === 'X' || row3[0] === 'O' && row3[1] === 'O' && row3[2] === 'O') return true;
+  else if (col1[0] === 'X' && col1[1] === 'X' && col1[2] === 'X' || col1[0] === 'O' && col1[1] === 'O' && col1[2] === 'O') return true;
+  else if (col2[0] === 'X' && col2[1] === 'X' && col2[2] === 'X' || col2[0] === 'O' && col2[1] === 'O' && col2[2] === 'O') return true;
+  else if (col3[0] === 'X' && col3[1] === 'X' && col3[2] === 'X' || col3[0] === 'O' && col3[1] === 'O' && col3[2] === 'O') return true;
+  else if (row1[0] === 'X' && row2[1] === 'X' && row3[2] === 'X' || row1[0] === 'O' && row2[1] === 'O' && row3[2] === 'O') return true;
+  else if (row1[2] === 'X' && row2[1] === 'X' && row3[0] === 'X' || row1[2] === 'O' && row2[1] === 'O' && row3[0] === 'O') return true;
+  else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -269,7 +291,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should check if url is https', () => {
 
     expect(isSecure('http://www.insecure.com')).toBe(false);
@@ -278,7 +300,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return true if there are three in a row', () => {
     expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
     expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);

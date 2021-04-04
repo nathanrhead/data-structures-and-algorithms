@@ -22,7 +22,6 @@ describe('returns a joined matrix', () => {
     hashtable2.add('flow', 'jam');
 
     let results = leftJoin(hashtable1, hashtable2);
-    console.log({results});
     expect(results).toEqual([
       ['diligent', 'employed', 'idle'],
       ['fond', 'enamour', 'averse'],

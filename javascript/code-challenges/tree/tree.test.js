@@ -153,7 +153,6 @@ describe('the BinaryTree class', () => {
     binaryTree.add(6);
     binaryTree.add(7);
     let depth = binaryTree.getDepth();
-    console.log({depth});
     expect(depth).toEqual(4);
   });
 });
