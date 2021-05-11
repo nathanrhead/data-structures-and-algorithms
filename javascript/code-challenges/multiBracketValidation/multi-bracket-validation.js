@@ -1,4 +1,5 @@
 'use strict';
+
 // Revised 11 March 2021, because the first solution--see the whiteboard--didn't account for type, only number.
 
 //Problem domain: Your function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets: '()', '{}', '[]';

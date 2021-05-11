@@ -8,7 +8,7 @@ function repeatedWord(lengthyString) {
   const regex = /\b\w*/g;
   const data = lengthyString.match(regex);
 
-  console.log('Data:', data);
+  // console.log('Data:', data);
 
   let hashtable = new HashMap(1);
 
