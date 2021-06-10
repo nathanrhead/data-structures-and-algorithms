@@ -10,6 +10,7 @@ describe('Hashtables', () => {
     hashtable.add('yellow', 'жёлтый');
     hashtable.add('orange', 'оранжевый');
     hashtable.add('blue', 'синий');
+    console.log(hashtable);
     expect(hashtable.map[3].head.value).toEqual( {red: 'красный'} );
     expect(hashtable.map[4].head.value).toEqual( {yellow: 'жёлтый'} );
     expect(hashtable.map[0].head.value).toEqual( {orange: 'оранжевый'} );
