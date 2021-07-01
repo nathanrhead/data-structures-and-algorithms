@@ -50,8 +50,8 @@ class HashMap {
 
     // 2. Create the entry key-value pair.
     const entry = { [key]: value };
-    // 3. Create a new linked list if nothing resides at this hash point.
 
+    // 3. Create a new linked list if nothing resides at this hash point.
     if (!this.map[hash]) this.map[hash] = new LinkedList();
 
     // 4. Insert the new object at the corresponding hash point.
