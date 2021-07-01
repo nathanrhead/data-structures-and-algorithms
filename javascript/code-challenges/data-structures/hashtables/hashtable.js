@@ -12,7 +12,7 @@ class LinkedList {
     this.head = null;
   }
 
-  // Insert a node at the head.
+  // Insert a node at the head or linked to the head, if it already exists.
   insert(val) {
     if (!this.head) {
       const node = new Node(val);
