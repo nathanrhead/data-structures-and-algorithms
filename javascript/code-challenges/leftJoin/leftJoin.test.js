@@ -1,6 +1,6 @@
 'use strict';
 
-const HashMap = require('../hashtables/hashtable');
+const HashMap = require('../data-structures/hashtables/hashtable');
 const leftJoin = require('./left-join');
 
 // While the functions will still work properly, if the size of the hashmaps are changed, the ordering of the resultant matrix will change, causing the tests to fail.

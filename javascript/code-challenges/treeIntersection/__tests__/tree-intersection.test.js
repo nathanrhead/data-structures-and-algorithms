@@ -1,6 +1,6 @@
 'use strict';
 
-const BinaryTree = require('../../tree/tree');
+const BinaryTree = require('../../data-structures/trees/tree');
 const treeIntersection = require('../tree-intersection');
 
 describe('the algorithm to return a set of values found in both of two binary trees', () => {

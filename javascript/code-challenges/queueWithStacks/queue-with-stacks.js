@@ -1,6 +1,6 @@
 'use strict';
 
-const Stack = require('../stacksAndQueues/stacks');
+const Stack = require('../data-structures/stacksAndQueues/stacks');
 
 class psuedoQueue {
   constructor() {

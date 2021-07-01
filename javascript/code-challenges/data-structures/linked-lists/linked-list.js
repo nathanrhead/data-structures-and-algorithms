@@ -1,7 +1,7 @@
 'use strict';
 
 const Node = require('./node');
-const Hashtable = require('../../hashtables/hashtable');
+const Hashtable = require('../hashtables/hashtable');
 
 class LinkedList {
   constructor() {

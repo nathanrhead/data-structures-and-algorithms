@@ -1,6 +1,6 @@
 'use strict';
 
-const HashMap = require('../hashtables/hashtable');
+const HashMap = require('../data-structures/hashtables/hashtable');
 
 function treeIntersection(bTree1, bTree2) {
 

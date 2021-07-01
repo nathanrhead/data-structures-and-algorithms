@@ -1,7 +1,7 @@
 'use strict';
 
 const reverse = require('../reverse-ll.js');
-const LinkedList = require('../../data-structures/linked-list/linked-list');
+const LinkedList = require('../../data-structures/linked-lists/linked-list');
 
 const list = new LinkedList();
 list.insert(1);
