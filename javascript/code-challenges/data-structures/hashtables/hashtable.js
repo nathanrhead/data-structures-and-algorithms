@@ -39,7 +39,7 @@ class HashMap {
         return acc + val.charCodeAt(0);
       }, 0) * 599 % this.size;
     } else if (typeof key === 'number') {
-      return key * 599 & this.size;
+      return key * 599 % this.size;
     }
   }
 
