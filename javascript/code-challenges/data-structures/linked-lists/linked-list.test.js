@@ -10,45 +10,47 @@ describe('Linked List', () => {
   });
 
   it('inserts a node at the beginning of an empty list', () => {
-    let list = new LinkedList();
-    list.insert('Henry');
+    const list = new LinkedList();
+    list.prepend('Henry');
     expect(list.head.value).toEqual('Henry');
   });
 
-  it('inserts a node at the beginning of a list', () => {
+  it('prepends a node to the beginning of a list', () => {
     let list = new LinkedList();
-    list.insert('Norah');
+    list.prepend('Norah');
     expect(list.head.value).toEqual('Norah');
   });
 
   it('looks for the presence of a given value in the list', () => {
     let list = new LinkedList();
-    list.insert('Norah');
-    list.insert('Sammy');
-    list.insert('Ben');
-    list.insert('Tim');
-    list.insert('Caleb');
+    list.prepend('Norah');
+    list.prepend('Sammy');
+    list.prepend('Ben');
+    list.prepend('Tim');
+    list.prepend('Caleb');
     expect(list.includes('Ben')).toBe(true);
     expect(list.includes('Sasha')).toBe(false);
   });
 
   it('compiles all values of the list into a string', () => {
-    let list = new LinkedList();
-    list.insert('Norah');
-    list.insert('Sammy');
-    list.insert('Ben');
-    list.insert('Tim');
-    list.insert('Caleb');
+    const list = new LinkedList();
+    const list1 = new LinkedList();
+    list.prepend('Norah');
+    list.prepend('Sammy');
+    list.prepend('Ben');
+    list.prepend('Tim');
+    list.prepend('Caleb');
     expect(list.toString()).toBe('{ Caleb } -> { Tim } -> { Ben } -> { Sammy } -> { Norah } -> NULL');
+    expect(list1.toString()).toBe(null);
   });
 
   it('appends a node at the end of a list', () => {
     let list = new LinkedList();
-    list.insert('Caleb');
-    list.insert('Tim');
-    list.insert('Ben');
-    list.insert('Sam');
-    list.insert('Norah');
+    list.prepend('Caleb');
+    list.prepend('Tim');
+    list.prepend('Ben');
+    list.prepend('Sam');
+    list.prepend('Norah');
     list.append('Henry');
     let current = list.head;
     while (current) {
@@ -61,11 +63,11 @@ describe('Linked List', () => {
 
   it('inserts a node before a node with a given value', () => {
     let list = new LinkedList();
-    list.insert('Caleb');
-    list.insert('Tim');
-    list.insert('Sam');
-    list.insert('Norah');
-    list.insert('Henry');
+    list.prepend('Caleb');
+    list.prepend('Tim');
+    list.prepend('Sam');
+    list.prepend('Norah');
+    list.prepend('Henry');
     list.insertBefore('Tim', 'Ben');
     let current = list.head;
     while (current) {
@@ -78,11 +80,11 @@ describe('Linked List', () => {
 
   it('inserts a node after a node with a given value', () => {
     let list = new LinkedList();
-    list.insert('Caleb');
-    list.insert('Tim');
-    list.insert('Sam');
-    list.insert('Norah');
-    list.insert('Henry');
+    list.prepend('Caleb');
+    list.prepend('Tim');
+    list.prepend('Sam');
+    list.prepend('Norah');
+    list.prepend('Henry');
     list.insertAfter('Sam', 'Ben');
     let current = list.head;
     while (current) {
@@ -95,28 +97,28 @@ describe('Linked List', () => {
 
   it ('returns the value of the node k places from the end of the list', () => {
     let list = new LinkedList();
-    list.insert('A');
-    list.insert('B');
-    list.insert('C');
-    list.insert('D');
-    list.insert('E');
-    list.insert('F');
-    list.insert('G');
+    list.prepend('A');
+    list.prepend('B');
+    list.prepend('C');
+    list.prepend('D');
+    list.prepend('E');
+    list.prepend('F');
+    list.prepend('G');
     const result = list.kthFromTheEnd(3);
     expect(result).toEqual('C');
   });
 
   it ('removes duplicate values from a linked list', () => {
     let linkedList = new LinkedList();
-    linkedList.insert(1);
-    linkedList.insert(1);
-    linkedList.insert(2);
-    linkedList.insert(2);
-    linkedList.insert(2);
-    linkedList.insert(3);
-    linkedList.insert(3);
-    linkedList.insert(3);
-    linkedList.insert(4);
+    linkedList.prepend(1);
+    linkedList.prepend(1);
+    linkedList.prepend(2);
+    linkedList.prepend(2);
+    linkedList.prepend(2);
+    linkedList.prepend(3);
+    linkedList.prepend(3);
+    linkedList.prepend(3);
+    linkedList.prepend(4);
     const result = linkedList.removeDuplicates();
     expect(result).toEqual('{ 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL');
   });

@@ -6,21 +6,45 @@ const Hashtable = require('../hashtables/hashtable');
 class LinkedList {
   constructor() {
     this.head = null;
+    this.length = 1;
   }
 
-  // Insert a node at the head.
-  insert(value) {
-    if (this.head === null) {
-      const node = new Node(value);
+  // Insert a node at the head: time = O(1)
+  prepend(value) {
+    const node = new Node(value);
+    if (!this.head) {
       this.head = node;
+      this.tail = this.head;
     } else {
-      const node = new Node(value);
       node.next = this.head;
       this.head = node;
+      this.length++;
     }
+    return this;
   }
 
-  // Look for the presence of a given value in the list.
+  // Append a node at the end of a list: time = O(1).
+  append(value) {
+    const node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+      this.tail = this.head;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+      this.length++;
+    }
+    return this;
+    /* to traverse the LL is to increase the time complexity from O(1) to O(n) */
+    // let current = this.head;
+    // while (current.next) {
+    //   current = current.next;
+    // }
+    // current.next = node;
+  }
+
+
+  // Look for the presence of a given value in the list: time = O(n).
   includes(value) {
     let current = this.head;
     while (current) {
@@ -34,32 +58,20 @@ class LinkedList {
 
   // Create a string of all the linked list's values from a to the nth.
   toString() {
-    let allValues = '';
-    let currentNode = this.head;
+    // Error check for an empty LL.
     if (!this.head) {
-      return 'NULL';
+      return null;
     }
-    allValues = `{ ${this.head.value} } -> `;
+
+    let currentNode = this.head;
+    let allValues = `{ ${this.head.value} } -> `;
+
     while (currentNode.next) {
       currentNode = currentNode.next;
       allValues += `{ ${currentNode.value} } -> `;
     }
-    allValues += `NULL`;
-    return `${allValues}`;
-  }
-
-  // Append a node at the end of a list.
-  append(value) {
-    const node = new Node(value);
-    if (!this.head) {
-      this.head = node;
-      return;
-    }
-    let current = this.head;
-    while (current.next) {
-      current = current.next;
-    }
-    current.next = node;
+    allValues += 'NULL';
+    return allValues;
   }
 
   insertBefore(value, newValue) {
