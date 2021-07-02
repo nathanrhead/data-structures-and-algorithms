@@ -4,15 +4,15 @@ const reverse = require('../reverse-ll.js');
 const LinkedList = require('../../data-structures/linked-lists/linked-list');
 
 const list = new LinkedList();
-list.insert(1);
-list.insert(2);
-list.insert(3);
-list.insert(4);
-list.insert(5);
-list.insert(6);
-list.insert(7);
-list.insert(8);
-list.insert(9);
+list.prepend(1);
+list.prepend(2);
+list.prepend(3);
+list.prepend(4);
+list.prepend(5);
+list.prepend(6);
+list.prepend(7);
+list.prepend(8);
+list.prepend(9);
 
 describe('Reverse', () => {
   it('works', () => {
