@@ -46,6 +46,18 @@ class DoublyLinkedList {
     return this;
   }
 
+  // Look for the presence of a given value in the list: time = O(n).
+  includes(value) {
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
+  }
+
   printList() {
     const array = [];
     let current = this.head;
@@ -98,7 +110,7 @@ class DoublyLinkedList {
   }
 
   traverseToIndex(index) {
-    if (index < -1 || index > this.length) return 'No such index exists.'
+    if (index < -1 || index > this.length) return 'No such index exists.';
 
     let counter = 0;
     let current = this.head;
@@ -107,6 +119,40 @@ class DoublyLinkedList {
       counter++;
     }
     return current; // This gives the value of the node previous to the insertion point.
+  }
+
+  // Find the node k places from the end.
+  kthFromTheEnd(k) {
+    if (this.length < 1) return 'The linked list is empty.';
+    if (k < 0 || k > this.length) return 'No such index exists in the list.';
+
+    let current = this.tail;
+
+    while (k > 0) {
+      current = current.previous;
+      k--;
+    }
+    return current.value;
+  }
+
+  reverse() {
+    if (!this.head) return 'The list is empty.';
+    if (!this.head.next) return this;
+
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+
+    while (second) {
+      const third = second.next;
+      second.next = first;
+      first.previous = second;
+      first = second;
+      second = third;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this.printList();
   }
 }
 

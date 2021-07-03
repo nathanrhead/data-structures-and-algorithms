@@ -43,7 +43,6 @@ class LinkedList {
     // current.next = node;
   }
 
-
   // Look for the presence of a given value in the list: time = O(n).
   includes(value) {
     let current = this.head;
@@ -116,7 +115,7 @@ class LinkedList {
       current = current.next;
       k--;
     }
-    while (current) {
+    while (current.next) {
       current = current.next;
       kthFromCurrent = kthFromCurrent.next;
     }
@@ -144,11 +143,11 @@ class LinkedList {
     return this.toString();
   }
 
-  reverse(list) {
-    if (!list.head) return 'The list is empty.';
-    if (!list.head.next) return list.printList();
-    let first = list.head;
-    list.tail = list.head;
+  reverse() {
+    if (!this.head) return 'The list is empty.';
+    if (!this.head.next) return this;
+    let first = this.head;
+    this.tail = this.head;
     let second = first.next;
 
     while (second) {
@@ -158,11 +157,10 @@ class LinkedList {
       second = third; // This makes the second node the third node in preparation for the next loop.
 
     }
-    list.head.next = null; // This makes the tail's next (or the former head's next) null, before reassigning the head to the first node.
-    list.head = first; // This reassigns the head to the first (formerly last) node.
-    return list.printList();
+    this.head.next = null; // This makes the tail's next (or the former head's next) null, before reassigning the head to the first node.
+    this.head = first; // This reassigns the head to the first (formerly last) node.
+    return this.printList();
   }
-
 
   printList() {
     const array = [];
@@ -173,7 +171,6 @@ class LinkedList {
     }
     return array;
   }
-
 }
 
 module.exports = LinkedList;

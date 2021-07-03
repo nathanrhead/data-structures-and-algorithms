@@ -40,7 +40,6 @@ function reverseDll(list) {
   list.head.next = null;
   list.head = first;
   return list.printList();
-
 }
 
 module.exports = { reverse, reverseDll };
