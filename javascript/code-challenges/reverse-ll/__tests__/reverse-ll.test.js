@@ -1,25 +1,37 @@
 'use strict';
 
-const reverse = require('../reverse-ll.js');
+const { reverse, reverseDll } = require('../reverse-ll.js');
 const LinkedList = require('../../data-structures/linked-lists/linked-list');
 
-const list = new LinkedList();
-list.prepend(1);
-list.prepend(2);
-list.prepend(3);
-list.prepend(4);
-list.prepend(5);
-list.prepend(6);
-list.prepend(7);
-list.prepend(8);
-list.prepend(9);
-
 describe('Reverse', () => {
-  it('works', () => {
-    reverse(list);
-    expect(list.head.value).toEqual(1);
-    expect(list.head.next.value).toEqual(2);
-    expect(list.head.next.next.value).toEqual(3);
+  const list = new LinkedList();
+  list.append(1);
+  list.append(2);
+  list.append(3);
+  list.append(4);
+  list.append(5);
+  list.append(6);
+  list.append(7);
+  list.append(8);
+  list.append(9);
 
+  it('reverses a linked list', () => {
+    expect(reverse(list)).toEqual([ 9, 8, 7, 6, 5, 4, 3, 2, 1 ]);
+    expect(list.head.value).toEqual(9);
+    expect(list.head.next.value).toEqual(8);
+    expect(list.head.next.next.value).toEqual(7);
+    expect(list.tail.value).toEqual(1);
+    expect(list.tail.next).toBe(null);
+  });
+
+  it ('returns the list immediately if it consists of only one node', () => {
+    const list = new LinkedList();
+    list.append(1);
+    expect(reverse(list)).toEqual[1];
+  });
+
+  it ('returns an error if the list is empty', () => {
+    const list = new LinkedList();
+    expect(reverse(list)).toEqual['The list is empty.'];
   });
 });

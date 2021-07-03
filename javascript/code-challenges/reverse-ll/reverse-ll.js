@@ -1,33 +1,36 @@
 'use strict';
 
-// Require the linked-list implementation
-// const LinkedList = require('../data-structures/linked-list/linked-list');
-
-// const list = new LinkedList();
-// list.insert(1);
-// list.insert(2);
-// list.insert(3);
-// list.insert(4);
-// list.insert(5);
-// list.insert(6);
-// list.insert(7);
-// list.insert(8);
-// list.insert(9);
-
+// Reverse a singly linked list.
 function reverse(list) {
-  if (!list.head) throw new Error ('The linked list is empty.');
-  if (!list.head.next) return list.head;
+  if (!list.head) return 'The list is empty.';
+  if (!list.head.next) return list.printList();
+  let first = list.head;
+  list.tail = list.head;
+  let second = first.next;
 
-  let current = list.head, previous, temp;
+  while (second) {
+    const third = second.next; // This varialbe keeps track of the remaining list.
+    second.next = first; // This point the second node's next from the third to the first.
+    first = second; // This makes the second node the first node in preparation for the next loop.
+    second = third; // This makes the second node the third node in preparation for the next loop.
 
-  while (current) {
-    if (current.next) { list.head = current.next; } // Move the head down the line so that it ends up attached to the tail; set to run while current.next has value so that it doesn't get set to null;
-    temp = current.next; // Keep a pointer to the list from current.next;
-    current.next = previous; // Point the pointer to a new variable, previous, which gets defined in the next step;
-    previous = current; // Point previous to the current node;
-    current = temp; // Set current to the first of the rest of the list to iterate through it.
   }
-  return list.head;
+  list.head.next = null; // This makes the tail's next (or the former head's next) null, before reassigning the head to the first node.
+  list.head = first; // This reassigns the head to the first (formerly last) node.
+  return list.printList();
 }
 
-module.exports = reverse;
+// Reverse a doubly linked list.
+function reverseDll(list) {
+  // if (!list.head) throw new Error ('The linked list is empty.');
+  // if (!list.head.next) return list.head;
+
+  // let current = list.head, temp;
+
+  // while (current){
+
+  // }
+
+}
+
+module.exports = { reverse, reverseDll };

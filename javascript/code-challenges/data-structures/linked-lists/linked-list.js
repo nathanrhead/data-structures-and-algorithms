@@ -23,7 +23,7 @@ class LinkedList {
     return this;
   }
 
-  // Append a node at the end of a list: time = O(1).
+  // Append a node at the end of a list: time = O(1), thanks to the tail.
   append(value) {
     const node = new Node(value);
     if (!this.head) {
@@ -143,6 +143,17 @@ class LinkedList {
     }
     return this.toString();
   }
+
+  printList() {
+    const array = [];
+    let current = this.head;
+    while (current) {
+      array.push(current.value);
+      current = current.next;
+    }
+    return array;
+  }
+
 }
 
 module.exports = LinkedList;
