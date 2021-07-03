@@ -95,7 +95,7 @@ describe('Linked List', () => {
     }
   });
 
-  it ('returns the value of the node k places from the end of the list', () => {
+  it('returns the value of the node k places from the end of the list', () => {
     let list = new LinkedList();
     list.prepend('A');
     list.prepend('B');
@@ -108,18 +108,49 @@ describe('Linked List', () => {
     expect(result).toEqual('C');
   });
 
-  it ('removes duplicate values from a linked list', () => {
-    let linkedList = new LinkedList();
-    linkedList.prepend(1);
-    linkedList.prepend(1);
-    linkedList.prepend(2);
-    linkedList.prepend(2);
-    linkedList.prepend(2);
-    linkedList.prepend(3);
-    linkedList.prepend(3);
-    linkedList.prepend(3);
-    linkedList.prepend(4);
-    const result = linkedList.removeDuplicates();
+  it('removes duplicate values from a linked list', () => {
+    let list = new LinkedList();
+    list.prepend(1);
+    list.prepend(1);
+    list.prepend(2);
+    list.prepend(2);
+    list.prepend(2);
+    list.prepend(3);
+    list.prepend(3);
+    list.prepend(3);
+    list.prepend(4);
+    const result = list.removeDuplicates();
     expect(result).toEqual('{ 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL');
+  });
+
+  it('reverses a linked list', () => {
+    const list = new LinkedList();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    list.append(6);
+    list.append(7);
+    list.append(8);
+    list.append(9);
+
+    expect(list.reverse(list)).toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1]);
+    expect(list.head.value).toEqual(9);
+    expect(list.head.next.value).toEqual(8);
+    expect(list.head.next.next.value).toEqual(7);
+    expect(list.tail.value).toEqual(1);
+    expect(list.tail.next).toBe(null);
+  });
+
+  it('returns the list immediately if it consists of only one node', () => {
+    const list = new LinkedList();
+    list.append(1);
+    expect(list.reverse(list)).toEqual[1];
+  });
+
+  it('returns an error if the list is empty', () => {
+    const list = new LinkedList();
+    expect(list.reverse(list)).toEqual['The list is empty.'];
   });
 });
