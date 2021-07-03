@@ -27,7 +27,11 @@ describe('Reverse', () => {
   it ('returns the list immediately if it consists of only one node', () => {
     const list = new LinkedList();
     list.append(1);
-    expect(reverse(list)).toEqual[1];
+    expect(reverse(list)).toEqual({
+      head: { value: 1, next: null },
+      length: 1,
+      tail: { value: 1, next: null }
+    });
   });
 
   it ('returns an error if the list is empty', () => {

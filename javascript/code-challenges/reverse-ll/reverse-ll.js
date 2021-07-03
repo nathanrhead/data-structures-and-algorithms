@@ -3,7 +3,7 @@
 // Reverse a singly linked list.
 function reverse(list) {
   if (!list.head) return 'The list is empty.';
-  if (!list.head.next) return list.printList();
+  if (!list.head.next) return list;
   let first = list.head;
   list.tail = list.head;
   let second = first.next;
@@ -22,8 +22,8 @@ function reverse(list) {
 
 // Reverse a doubly linked list.
 function reverseDll(list) {
-  // if (!list.head) throw new Error ('The linked list is empty.');
-  // if (!list.head.next) return list.head;
+  if (!list.head) return 'The list is empty.';
+  if (!list.head.next) return list;
 
   // let current = list.head, temp;
 
