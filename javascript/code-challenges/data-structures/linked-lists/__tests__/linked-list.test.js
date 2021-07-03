@@ -1,8 +1,8 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('./linked-list');
-const DoublyLL = require('./doubly-linked-list');
+const LinkedList = require('../linked-list');
+const DoublyLL = require('../doubly-linked-list');
 
 describe('Linked Lists', () => {
 

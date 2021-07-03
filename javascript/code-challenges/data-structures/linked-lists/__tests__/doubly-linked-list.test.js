@@ -1,6 +1,6 @@
 'use strict';
 
-const DoublyLinkedList = require('./doubly-linked-list');
+const DoublyLinkedList = require('../doubly-linked-list');
 
 describe('the doubly linked-list class and its methods', () => {
 

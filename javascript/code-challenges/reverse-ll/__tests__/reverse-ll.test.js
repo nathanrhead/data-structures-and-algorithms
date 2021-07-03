@@ -53,10 +53,11 @@ describe('Reverse', () => {
     const doubly = new DoublyLinkedList();
     singly.append(1);
     doubly.append(1);
+
     expect(reverse(singly)).toEqual({
-      head: { value: 1, next: null },
+      head: { value: 1, previous: null, next: null },
       length: 1,
-      tail: { value: 1, next: null }
+      tail: { value: 1, previous: null, next: null }
     });
     expect(reverseDll(doubly)).toEqual({
       head: { value: 1, previous: null, next: null },

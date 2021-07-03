@@ -1,14 +1,8 @@
 'use strict';
 
-// A doubly linked list with methods.
+const Node = require('./node');
 
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.previous = null;
-    this.next = null;
-  }
-}
+// A doubly linked list with methods.
 
 class DoublyLinkedList {
   constructor(value) {
@@ -152,6 +146,7 @@ class DoublyLinkedList {
     }
     this.head.next = null;
     this.head = first;
+    this.head.previous = null;
     return this.printList();
   }
 }
