@@ -79,7 +79,7 @@ class LinkedList {
     let previousNode = null;
     while (currentNode) {
       if (currentNode.value === value) {
-        let node = new Node(newValue);
+        const node = new Node(newValue);
         if (!previousNode) { this.head = node; }
         else { previousNode.next = node; }
         node.next = currentNode;
@@ -95,7 +95,7 @@ class LinkedList {
     let current = this.head;
     while (current) {
       if (current.value === value) {
-        let node = new Node(newValue);
+        const node = new Node(newValue);
         node.next = current.next;
         current.next = node;
         return node;
