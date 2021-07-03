@@ -4,6 +4,7 @@
 function reverse(list) {
   if (!list.head) return 'The list is empty.';
   if (!list.head.next) return list;
+
   let first = list.head;
   list.tail = list.head;
   let second = first.next;
@@ -25,11 +26,20 @@ function reverseDll(list) {
   if (!list.head) return 'The list is empty.';
   if (!list.head.next) return list;
 
-  // let current = list.head, temp;
+  let first = list.head;
+  list.tail = list.head;
+  let second = first.next;
 
-  // while (current){
-
-  // }
+  while (second) {
+    const third = second.next;
+    second.next = first;
+    first.previous = second;
+    first = second;
+    second = third;
+  }
+  list.head.next = null;
+  list.head = first;
+  return list.printList();
 
 }
 
