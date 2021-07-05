@@ -151,8 +151,8 @@ class DoublyLinkedList {
     return this.printList();
   }
 
-
-  reverse() {
+  // This method is the same as for a singly linked list, apart from resetting the first.previous pointer to second in the while loop. See the next reverse method for one that reverses the loop from the back and the front simultaneously.
+  reverse1() {
     if (!this.head) return 'The list is empty.';
     if (!this.head.next) return this;
 
@@ -172,6 +172,46 @@ class DoublyLinkedList {
     this.head.previous = null;
     return this.printList();
   }
+
+  reverse2() {
+    if (!this.head) return 'The list is empty.';
+    if (!this.head.next) return this;
+
+    let a = this.head;
+    let b = a.next;
+
+    let z = this.tail;
+    let y = z.previous;
+
+    let counter = Math.ceil(this.length / 2);
+
+    // Reassign the head and the tail before moving the nodes.
+    this.head = z;
+    this.tail = a;
+
+    while (counter > 0) {
+      const shiftRight = b.next;
+      const shiftLeft = y.previous;
+
+      b.next = a;
+      a.previous = b;
+      a = b;
+      b = shiftRight;
+
+      y.previous = z;
+      z.next = y;
+      z = y;
+      y = shiftLeft;
+
+      counter--;
+    }
+    // The head's previous and the tail's next can be reassigned above the while loop, too, if preferred.
+    this.head.previous = null;
+    this.tail.next = null;
+
+    return this.printList();
+  }
+
 }
 
 module.exports = DoublyLinkedList;
