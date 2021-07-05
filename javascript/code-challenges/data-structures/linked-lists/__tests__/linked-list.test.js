@@ -209,7 +209,6 @@ describe('Linked Lists', () => {
     expect(doubly.head.next.next.value).toEqual(7);
     expect(doubly.tail.value).toEqual(1);
     expect(doubly.tail.next).toBe(null);
-
   });
 
   it('returns the list immediately if, when attempting to reverse, it consists of only one node', () => {
