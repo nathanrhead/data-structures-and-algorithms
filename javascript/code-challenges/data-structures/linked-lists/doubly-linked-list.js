@@ -1,6 +1,7 @@
 'use strict';
 
 const Node = require('./node');
+const Hashtable = require('../hashtables/hashtable');
 
 // A doubly linked list with methods.
 
@@ -22,7 +23,7 @@ class DoublyLinkedList {
       this.tail.next = node;
       this.tail = node;
       this.length++;
-      return this;
+      return this.printList();
     }
   }
 
@@ -128,6 +129,28 @@ class DoublyLinkedList {
     }
     return current.value;
   }
+
+  removeDuplicates() {
+    if (!this.head) throw 'This value doesn\'t exist in the list.';
+    if (!this.head.next) return this.head;
+
+    let hashmap = new Hashtable(5);
+    // Iterate through the linked list to populate the hashtable.
+    let current = this.head;
+    let previous = null;
+    while (current) {
+      if (hashmap.contains(current.value)) {
+        previous.next = current.next;
+        current = current.next;
+      } else {
+        hashmap.add(current.value, current.value);
+        previous = current;
+        current = current.next;
+      }
+    }
+    return this.printList();
+  }
+
 
   reverse() {
     if (!this.head) return 'The list is empty.';

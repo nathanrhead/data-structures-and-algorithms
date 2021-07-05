@@ -156,7 +156,6 @@ describe('Linked Lists', () => {
 
     expect(singly.kthFromTheEnd(3)).toEqual('D');
     expect(doubly.kthFromTheEnd(3)).toEqual('D');
-
   });
 
   it('removes duplicate values from a linked list', () => {
