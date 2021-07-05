@@ -1,13 +1,14 @@
 # Data Structures and Algorithms
 
-## Language: `JavaScript`
+## Language: JavaScript
 
 ### Table of Contents (and Links to Whiteboards) for 401 Code Challenges
 
 - [Class 01: Array Reverse](./assets/code-challenge01.png)
 - [Class 02: Array Shift](./assets/code-challenge02.png)
 - [CLass 03: Binary Search](./assets/code-challenge03.png)
-- ![Class 04: Whiteboarding Mock Interview](./assets/code-challenge0.png)
+- ![Class 04: Whiteboarding Mock Interview](./assets/code-challenge0.png)\
+- Class 05: Write a linked-list class with the following methods: prepend, contains, toString; no whiteboard required.
 - ![Class 06: Intro to Linked Lists](./assets/code-challenge06.png)
 - ![Class 07: The kth Value from the End of a Linked List](./assets/code-challenge07.png)
 - ![Class 08: Zip Two Linked Lists](./assets/code-challenge08.png)
