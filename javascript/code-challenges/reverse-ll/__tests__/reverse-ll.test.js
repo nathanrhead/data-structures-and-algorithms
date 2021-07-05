@@ -1,6 +1,6 @@
 'use strict';
 
-const { reverse, reverseDll } = require('../reverse-ll.js');
+const { reverse, reverseDll1, reverseDll2 } = require('../reverse-ll.js');
 const SinglyLinkedList = require('../../data-structures/linked-lists/linked-list');
 const DoublyLinkedList = require('../../data-structures/linked-lists/doubly-linked-list');
 describe('Reverse', () => {
@@ -37,14 +37,24 @@ describe('Reverse', () => {
     doubly.append(8);
     doubly.append(9);
 
-    expect(reverseDll(doubly)).toEqual([ 9, 8, 7, 6, 5, 4, 3, 2, 1 ]);
-
+    expect(reverseDll1(doubly)).toEqual([ 9, 8, 7, 6, 5, 4, 3, 2, 1 ]);
     expect(doubly.head.value).toEqual(9);
     expect(doubly.head.next.value).toEqual(8);
     expect(doubly.head.next.next.value).toEqual(7);
+    expect(doubly.head.previous).toBe(null);
     expect(doubly.tail.value).toEqual(1);
     expect(doubly.tail.next).toBe(null);
     expect(doubly.tail.previous.value).toEqual(2);
+
+    expect(reverseDll2(doubly)).toEqual([ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]);
+    expect(doubly.head.value).toEqual(1);
+    expect(doubly.head.next.value).toEqual(2);
+    expect(doubly.head.next.next.value).toEqual(3);
+    expect(doubly.head.previous).toBe(null);
+    expect(doubly.tail.value).toEqual(9);
+    expect(doubly.tail.next).toBe(null);
+    expect(doubly.tail.previous.value).toEqual(8);
+
   });
 
 
@@ -59,17 +69,24 @@ describe('Reverse', () => {
       length: 1,
       tail: { value: 1, previous: null, next: null }
     });
-    expect(reverseDll(doubly)).toEqual({
+    expect(reverseDll1(doubly)).toEqual({
       head: { value: 1, previous: null, next: null },
       tail: { value: 1, previous: null, next: null },
       length: 1
     });
+    expect(reverseDll2(doubly)).toEqual({
+      head: { value: 1, previous: null, next: null },
+      tail: { value: 1, previous: null, next: null },
+      length: 1
+    });
+
   });
 
   it ('returns an error if the list is empty', () => {
     const singly = new SinglyLinkedList();
     const doubly = new DoublyLinkedList();
     expect(reverse(singly)).toEqual('The list is empty.');
-    expect(reverseDll(doubly)).toEqual('The list is empty.');
+    expect(reverseDll1(doubly)).toEqual('The list is empty.');
+    expect(reverseDll2(doubly)).toEqual('The list is empty.');
   });
 });

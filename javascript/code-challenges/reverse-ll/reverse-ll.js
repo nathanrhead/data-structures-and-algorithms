@@ -21,14 +21,15 @@ function reverse(list) {
   return list.printList();
 }
 
-// Reverse a doubly linked list.
-function reverseDll(list) {
+// Reverse a doubly linked list with O(n).
+function reverseDll1(list) {
   if (!list.head) return 'The list is empty.';
   if (!list.head.next) return list;
 
   let first = list.head;
-  list.tail = list.head;
   let second = first.next;
+
+  list.tail = list.head;
 
   while (second) {
     const third = second.next;
@@ -39,7 +40,53 @@ function reverseDll(list) {
   }
   list.head.next = null;
   list.head = first;
+  list.head.previous = null;
+
   return list.printList();
 }
 
-module.exports = { reverse, reverseDll };
+// Reverse a doubly linked list with O(n/2) which, despite it simplifying to O(n), is still awesome.
+
+function reverseDll2(list) {
+  if (!list.head) return 'The list is empty.';
+  if (!list.head.next) return list;
+
+  let a = list.head;
+  let b = a.next;
+
+  let z = list.tail;
+  let y = z.previous;
+
+  let shiftRight = true;
+  let shiftLeft = false;
+
+  let counter = Math.ceil(list.length / 2);
+
+  list.head = z;
+  list.tail = a;
+
+  while (counter > 0) {
+    shiftRight = b.next;
+    shiftLeft = y.previous;
+
+    b.next = a;
+    a.previous = b;
+    a = b;
+    b = shiftRight;
+
+    y.previous = z;
+    z.next = y;
+    z = y;
+    y = shiftLeft;
+
+    counter--;
+  }
+
+  list.head.previous = null;
+  list.tail.next = null;
+
+  return list.printList();
+}
+
+
+module.exports = { reverse, reverseDll1, reverseDll2 };
