@@ -50,12 +50,10 @@ Big O is either 0(1) or 0(n).
 
 - [x] removeDuplicates: return the list sans duplicate values.
 
+- [x] zipLists: zips two lists together, alternating the lists' nodes.
+
 Additional methods added
 
 - [x] reverse: return the linked list fully reversed.
 
 - [x] printList: return the values of the list as an array in the order that they appear from head to tail.
-
-
-
-

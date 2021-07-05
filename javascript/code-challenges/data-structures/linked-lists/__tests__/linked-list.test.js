@@ -124,7 +124,7 @@ describe('Linked Lists', () => {
     }
   });
 
-  it ('inserts a node at a given index', () => {
+  it('inserts a node at a given index', () => {
     const doubly = new DoublyLL();
     doubly.append('Caleb');
     doubly.append('Tim');
@@ -231,5 +231,23 @@ describe('Linked Lists', () => {
     const doubly = new DoublyLL();
     expect(singly.reverse()).toEqual('The list is empty.');
     expect(doubly.reverse2()).toEqual('The list is empty.');
+  });
+
+  it('zips a given list into the list object, inserting the former\'s values into every other slot of the latter\'s, starting with position 2', () => {
+    const one = new LinkedList();
+    one.append(1);
+    one.append(3);
+    one.append(5);
+    one.append(7);
+    one.append(9);
+
+    const two = new LinkedList();
+    two.append(2);
+    two.append(4);
+    two.append(6);
+    two.append(8);
+    two.append(10);
+
+    expect(one.zipLists(two)).toEqual([ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]);
   });
 });
