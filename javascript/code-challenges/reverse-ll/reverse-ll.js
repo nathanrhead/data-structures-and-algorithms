@@ -57,17 +57,14 @@ function reverseDll2(list) {
   let z = list.tail;
   let y = z.previous;
 
-  let shiftRight = true;
-  let shiftLeft = false;
-
-  let counter = Math.ceil(list.length / 2);
+  let counter = Math.ceil(list.length / 2) - 1;
 
   list.head = z;
   list.tail = a;
 
   while (counter > 0) {
-    shiftRight = b.next;
-    shiftLeft = y.previous;
+    const shiftRight = b.next;
+    const shiftLeft = y.previous;
 
     b.next = a;
     a.previous = b;

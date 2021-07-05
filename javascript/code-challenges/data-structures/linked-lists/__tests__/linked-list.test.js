@@ -203,7 +203,7 @@ describe('Linked Lists', () => {
     expect(singly.tail.value).toEqual(1);
     expect(singly.tail.next).toBe(null);
 
-    expect(doubly.reverse()).toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1]);
+    expect(doubly.reverse2()).toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1]);
     expect(doubly.head.value).toEqual(9);
     expect(doubly.head.next.value).toEqual(8);
     expect(doubly.head.next.next.value).toEqual(7);
@@ -217,7 +217,7 @@ describe('Linked Lists', () => {
     singly.append(1);
     doubly.append(1);
     singly.reverse();
-    doubly.reverse();
+    doubly.reverse2();
     expect(singly.length).toEqual(1);
     expect(doubly.length).toEqual(1);
     expect(singly.head.next).toBe(null);
@@ -230,6 +230,6 @@ describe('Linked Lists', () => {
     const singly = new LinkedList();
     const doubly = new DoublyLL();
     expect(singly.reverse()).toEqual('The list is empty.');
-    expect(doubly.reverse()).toEqual('The list is empty.');
+    expect(doubly.reverse2()).toEqual('The list is empty.');
   });
 });

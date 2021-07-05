@@ -183,7 +183,7 @@ class DoublyLinkedList {
     let z = this.tail;
     let y = z.previous;
 
-    let counter = Math.ceil(this.length / 2);
+    let counter = Math.ceil(this.length / 2) - 1;
 
     // Reassign the head and the tail before moving the nodes.
     this.head = z;
