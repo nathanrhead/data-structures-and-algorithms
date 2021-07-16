@@ -13,10 +13,11 @@ const binarySearch = (arr, val) => {
   if (arr.length % 2) midpoint += 0.5;
 
   while (arr[midpoint] !== val && start < end) {
-
+    // Move either start or end.
     if (arr[midpoint] > val) end = midpoint - 1;
     else start = midpoint + 1;
 
+    // Redefine the midpoint to be between start and end again.
     if (!((end + start) % 2)) midpoint = (end + start) / 2;
     else midpoint = ((end + start) / 2) + 0.5;
   }
