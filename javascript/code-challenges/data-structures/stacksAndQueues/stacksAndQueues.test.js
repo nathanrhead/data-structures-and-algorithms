@@ -7,24 +7,25 @@ const Queue = require('./queues');
 
 describe('stacks', () => {
   it ('creates an empty stack', () => {
-    let stack = new Stack();
+    const stack = new Stack();
     expect(stack.top).toBe(null);
   });
 
   it('returns null if no values are in the stack', () => {
-    let stack = new Stack();
+    const stack = new Stack();
     expect(stack.top).toEqual(null);
   });
 
   describe('push', () => {
     it('adds a value to the top of a stack', () => {
-      let stack = new Stack();
+      const stack = new Stack();
       stack.push('smile');
-      expect(stack.top.value).toEqual('smile');
+      stack.push('frown');
+      expect(stack.top.value).toEqual('frown');
     });
 
     it('adds multiple values to the stack', () => {
-      let stack = new Stack();
+      const stack = new Stack();
       stack.push('smile');
       stack.push('frown');
       stack.push('choice');
@@ -34,7 +35,7 @@ describe('stacks', () => {
 
   describe('pop()', () => {
     it('removes a value from the top of a stack', () => {
-      let stack = new Stack();
+      const stack = new Stack();
       stack.push('smile');
       stack.push('frown');
       stack.push('choice');
@@ -43,7 +44,7 @@ describe('stacks', () => {
     });
 
     it('empties a stack after multiple pops', () => {
-      let stack = new Stack();
+      const stack = new Stack();
       stack.push('smile');
       stack.push('frown');
       stack.push('choice');
@@ -53,15 +54,15 @@ describe('stacks', () => {
       expect(stack.top).toEqual(null);
     });
 
-    it('throws an exception when calling pop on an empty stack', () => {
+    it('returns null when calling pop on an empty stack', () => {
       let stack = new Stack();
-      expect(() => { stack.pop(); } ).toThrow('Can\'t pop from an empty stack.');
+      expect(stack.pop()).toBe(null);
     });
   });
 
   describe('peek()', () => {
     it('returns the value of the top node', () => {
-      let stack = new Stack();
+      const stack = new Stack();
       stack.push('smile');
       stack.push('frown');
       stack.push('choice');
@@ -69,15 +70,15 @@ describe('stacks', () => {
       expect(peeked).toEqual('choice');
     });
 
-    it('throws an exception when calling peek on an empty stack', () => {
+    it('returns null when calling peek on an empty stack', () => {
       let stack = new Stack();
-      expect(() => { stack.peek(); }).toThrow('Can\'t peek at an empty stack.');
+      expect(stack.peek()).toBe(null);
     });
   });
 
   describe('isEmpty()', () => {
     it('returns true if the stack is empty', () => {
-      let stack = new Stack();
+      const stack = new Stack();
       let emptyStack = stack.isEmpty();
       expect(emptyStack).toBe(true);
     });
