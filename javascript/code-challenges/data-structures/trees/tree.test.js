@@ -76,6 +76,9 @@ describe('the BinaryTree class', () => {
     binaryTree.add(1);
     binaryTree.add(9);
     let results = binaryTree.postOrder();
+
+    console.log({results});
+
     expect(results[results.length-1]).toEqual(8);
   });
 

@@ -101,12 +101,12 @@ class BinaryTree {
 
   postOrder() {
     const results = [];
-
-    let _walk = (node) => {
+    const _walk = (node) => {
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
       results.push(node.value);
     };
+
     _walk(this.root);
     return results;
   }
