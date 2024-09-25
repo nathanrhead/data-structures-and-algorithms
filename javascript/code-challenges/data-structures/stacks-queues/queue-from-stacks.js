@@ -22,15 +22,17 @@ class QueueFromStacks1 {
 
   dequeue() {
     let current = this.stackTwo.top;
+
     while (this.stackTwo.top) {
       current = current.next;
       this.stackOne.push(this.stackTwo.pop());
     }
+
     return this.stackOne.pop(); // Returns the value popped off the top of the stack (which is the last value pushed in, in other words, the end of the array, or the front of the queue = dequeueing).
   }
 
   peek() {
-    if(this.stackOne.bottom) return this.stackOne.bottom.value;
+    if (this.stackOne.bottom) return this.stackOne.bottom.value;
     else if (this.stackTwo.bottom) return this.stackTwo.bottom.value;
     else return null;
   }
@@ -49,24 +51,30 @@ class QueueFromStacks2 {
 
   enqueue(value) {
     const length = this.stackOne.length;
+
     for (let i = 0; i < length; i++) {
       this.stackTwo.push(this.stackOne.pop());
     }
+
     this.stackTwo.push(value);
+
     return this;
   }
 
   dequeue() {
-    if(this.stackOne.length === 0 && this.stackTwo.length === 0) return null;
+    if (this.stackOne.length === 0 && this.stackTwo.length === 0) return null;
+
     const length = this.stackTwo.length;
+
     for (let i = 0; i < length; i++) {
       this.stackOne.push(this.stackTwo.pop());
     }
+
     return this.stackOne.pop();
   }
 
   peek() {
-    if(this.stackOne.length === 0 && this.stackTwo.length === 0) return null;
+    if (this.stackOne.length === 0 && this.stackTwo.length === 0) return null;
     return this.stackTwo.length > 0 ? this.stackTwo[0] : this.stackOne[this.stackOne.length - 1];
   }
 
