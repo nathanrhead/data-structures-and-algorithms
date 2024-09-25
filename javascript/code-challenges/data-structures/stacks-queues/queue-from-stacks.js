@@ -11,10 +11,12 @@ class QueueFromStacks1 {
 
   enqueue(value) {
     let current = this.stackOne.size;
+
     while(this.stackOne.size) {
       current = current.next;
       this.stackTwo.push(this.stackOne.pop());
     }
+
     this.stackTwo.push(value);
   }
 

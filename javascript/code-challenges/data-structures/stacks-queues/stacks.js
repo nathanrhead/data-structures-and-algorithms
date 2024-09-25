@@ -10,15 +10,15 @@ class Stack {
   }
 
   push(item) { // Takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) time performance.
-    let node = new Node(item);
+    const node = new Node(item);
+
     if(!this.top) { // Or, if (this.size === 0).
       this.top = node;
       this.bottom = node;
     } else {
       const temp = this.top;
       this.top = node;
-      node.next = temp;
-      // this.top.next = temp; // This is how the line was originally written, but there doesn't seem to be a difference between this.top.next and using node.next. Why the preference for this.top.next?
+      this.top.next = temp;
     }
     this.size++;
     return this;
