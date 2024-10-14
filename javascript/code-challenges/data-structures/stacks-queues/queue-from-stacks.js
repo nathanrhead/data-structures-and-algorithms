@@ -50,12 +50,15 @@ class QueueFromStacks2 {
   }
 
   enqueue(value) {
+    // Store the length of stack one before it is changed.
     const length = this.stackOne.length;
 
+    // Reverse stack one into stack two.
     for (let i = 0; i < length; i++) {
       this.stackTwo.push(this.stackOne.pop());
     }
 
+    // Push the value passed to the method into the queue.
     this.stackTwo.push(value);
 
     return this;
@@ -64,6 +67,7 @@ class QueueFromStacks2 {
   dequeue() {
     if (this.stackOne.length === 0 && this.stackTwo.length === 0) return null;
 
+    // Store the length of stack two before it is changed.
     const length = this.stackTwo.length;
 
     for (let i = 0; i < length; i++) {
